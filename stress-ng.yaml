@@ -1,0 +1,64 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/sa.scc.mcs: s0:c31,c0
+    openshift.io/sa.scc.supplemental-groups: 1000930000/10000
+    openshift.io/sa.scc.uid-range: 1000930000/10000
+  labels:
+    kubernetes.io/metadata.name: stress-ng
+    pod-security.kubernetes.io/audit: restricted
+    pod-security.kubernetes.io/audit-version: latest
+    pod-security.kubernetes.io/warn: restricted
+    pod-security.kubernetes.io/warn-version: latest
+  name: stress-ng
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress-ng
+  namespace: stress-ng
+spec:
+  replicas: 100
+  selector:
+    matchLabels:
+      app: stress-ng
+  template:
+    metadata:
+      labels:
+        app: stress-ng
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: cnfdc13.t5g-dev.eng.rdu2.dc.redhat.com
+      containers:
+      - name: stress-ng
+        image: quay.io/midu/stress-ng:03676022
+        command:
+        - /bin/sh
+        args:
+        - -c
+        - cd /tmp/; stress-ng --timeout 60s --pthread 1
+        resources:
+          requests:
+            memory: "300Mi"
+            cpu: "1m"
+          limits:
+            memory: "20Gi"
+            cpu: "10"
+        livenessProbe:
+          exec:
+            command:
+            - pgrep
+            - stress-ng
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - pgrep
+            - stress-ng
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
