@@ -1,0 +1,219 @@
+$ git shortlog kernel-5.14.0-427.57.1.el9_4..kernel-5.14.0-427.62.1.el9_4
+Antoine Tenart (1):
+      ipv4: Fix uninit-value access in __ip_make_skb()
+
+Aristeu Rozanski (1):
+      hugetlb: prioritize surplus allocation from current node
+
+Ben Procknow (1):
+      Bluetooth: Fix TOCTOU in HCI debugfs implementation
+
+Benjamin Coddington (5):
+      SUNRPC: Fix a hang in TLS sock_close if sk_write_pending
+      tls: Fix tls_sw_sendmsg error handling
+      SUNRPC: timeout and cancel TLS handshake with -ETIMEDOUT
+      SUNRPC: Handle -ETIMEDOUT return from tlshd
+      SUNRPC: fix a memleak in gss_import_v2_context
+
+CKI Backport Bot (9):
+      protect the fetch of ->fd[fd] in do_dup2() from mispredictions
+      net/mlx5e: fix a double-free in arfs_create_groups
+      memcg: protect concurrent access to mem_cgroup_idr
+      af_packet: do not call packet_read_pending() from tpacket_destruct_skb()
+      ftruncate: pass a signed offset
+      leds: trigger: Unregister sysfs attributes before calling deactivate()
+      net/mlx5e: Fix features validation check for tunneled UDP (non-VXLAN) packets
+      cpufreq: intel_pstate: Fix unchecked HWP MSR access
+      HID: core: zero-initialize the report buffer
+
+CKI KWF BOT (13):
+      erspan: make sure erspan_base_hdr is present in skb->head
+      mlxsw: spectrum_acl_tcam: Fix possible use-after-free during rehash
+      x86/fpu: Keep xfd_state in sync with MSR_IA32_XFD
+      net/mlx5e: Prevent deadlock while disabling aRFS
+      RDMA/srpt: Do not register event handler until srpt device is fully setup
+      RDMA/srpt: Support specifying the srpt_service_guid parameter
+      x86/fpu: Stop relying on userspace for info to fault in xsave buffer
+      hwrng: core - Fix page fault dead lock on mmap-ed hwrng
+      platform/x86: think-lmi: Fix issues with duplicate attributes
+      platform/x86: think-lmi: Fix reference leak
+      nvmem: Fix shift-out-of-bound (UBSAN) with byte size cells
+      can: bcm: Fix UAF in bcm_proc_show()
+      arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo array
+
+Davide Caratti (2):
+      net/sched: Fix mirred deadlock on device recursion
+      net/sched: initialize noop_qdisc owner
+
+Eric Auger (1):
+      KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state
+
+Ewan D. Milne (1):
+      scsi: mpi3mr: Avoid memcpy field-spanning write WARNING
+
+Gonzalo Siero (1):
+      drm/vmwgfx: Fix the lifetime of the bo cursor memory
+
+Guillaume Nault (1):
+      arp: Prevent overflow in arp_req_get().
+
+Hangbin Liu (1):
+      ipv6: prevent NULL dereference in ip6_output()
+
+Jaroslav Kysela (4):
+      ALSA: usb-audio: Add sampling rates support for Mbox3
+      ALSA: usb-audio: Fix potential out-of-bound accesses for Extigy and Mbox devices
+      ALSA: usb-audio: Fix for sampling rates support for Mbox3
+      ALSA: usb-audio: Fix a DMA to stack memory bug
+
+Jay Shin (1):
+      x86/kexec: Add EFI config table identity mapping for kexec kernel
+
+Jocelyn Falempe (1):
+      drm/vmwgfx: Create debugfs ttm_resource_manager entry only if needed
+
+Jon Maloy (1):
+      vsock/virtio: Initialization of the dangling pointer occurring in vsk->trans
+
+Jorge San Emeterio (1):
+      netfilter: nf_conntrack_h323: Add protection for bmp length out of range
+
+Jose Ignacio Tornos Martinez (1):
+      wifi: nl80211: reject iftype change with mesh ID change
+
+Kamal Heib (2):
+      net: ena: Add ENA Express metrics support
+      net: ena: Extend customer metrics reporting support
+
+Kate Hsuan (32):
+      media: cec: copy sequence field for the reply
+      media: cec: safely unhook lists in cec_data
+      media: cec: fix a deadlock situation
+      media: cec: call enable_adap on s_log_addrs
+      media: cec: abort if the current transmit was canceled
+      media: cec: correctly pass on reply results
+      media: cec-pin: rename timer overrun variables
+      media: cec-pin: fix off-by-one SFT check
+      media: cec-pin: drop unused 'enabled' field from struct cec_pin
+      media: cec-pin: fix interrupt en/disable handling
+      media: cec: use call_op and check for !unregistered
+      media: cec: add xfer_timeout_ms field
+      media: cec: add optional adap_configured callback
+      media: cec-adap.c: don't unconfigure if already unconfigured
+      media: cec-adap.c: stop trying LAs on CEC_TX_STATUS_TIMEOUT
+      media: cec-adap.c: fix is_configuring state
+      media: cec-adap.c: reconfigure if the PA changes during configuration
+      media: cec-adap.c: drop activate_cnt, use state info instead
+      media: cec-adap.c: log when claiming LA fails unexpectedly
+      media: cec: add support for Absolute Volume Control
+      media: cec: core: not all messages were passed on when monitoring
+      media: cec: core: disable adapter in cec_devnode_unregister
+      media: cec: core: don't set last_initiator if tx in progress
+      media: cec: core: add adap_nb_transmit_canceled() callback
+      media: cec: core: add adap_unconfigured() callback
+      media: cec: core: add note about *_from_edid() function usage in drm
+      media: cec: core: count low-drive, error and arb-lost conditions
+      media: cec: core: remove length check of Timer Status
+      media: cec: cec-adap: always cancel work in cec_transmit_msg_fh
+      media: cec: core: avoid recursive cec_claim_log_addrs
+      media: cec: core: avoid confusing "transmit timed out" message
+      media: cec: cec-api: add locking in cec_release()
+
+Marc Milgram (1):
+      idpf: call set_real_num_queues in idpf_open
+
+Mark Langsdorf (3):
+      ACPI: extlog: fix NULL pointer dereference check
+      cppc_cpufreq: Use desired perf if feedback ctrs are 0 or unchanged
+      cppc_cpufreq: Remove HiSilicon CPPC workaround
+
+Maxim Levitsky (1):
+      KVM: Always flush async #PF workqueue when vCPU is being destroyed
+
+Michal Schmidt (1):
+      i40e: add ability to reset VF for Tx and Rx MDD events
+
+Ming Lei (1):
+      block: prevent division by zero in blk_rq_stat_sum()
+
+Myron Stowe (7):
+      PCI/PM: Drain runtime-idle callbacks before driver removal
+      PCI: Wait for device readiness with Configuration RRS
+      PCI: Clear the LBMS bit after a link retrain
+      PCI: Revert to the original speed after PCIe failed link retraining
+      PCI: Correct error reporting with PCIe failed link retraining
+      PCI: Use an error code with PCIe failed link retraining
+      PCI: Wait for Link before restoring Downstream Buses
+
+Scott Weaver (56):
+      Merge: Backport the latest s390x KVM fixes from upstream (up to kernel 6.12-rc5)  [rhel-9.4.z]
+      Merge: CVE-2024-35801: Keep xfd_state in sync with MSR_IA32_XFD
+      Merge: hugetlb: prioritize surplus allocation from current node
+      Merge: CVE-2023-52615: core - Fix page fault dead lock on mmap-ed hwrng
+      Merge: cpufreq: cpufreq_online: ->get() failed  [rhel-9.4.z]
+      Merge: CVE-2023-52520: Fix reference leak
+      Merge: CVE-2024-26744: Support specifying the srpt_service_guid parameter
+      Merge: CVE-2021-47497: Fix shift-out-of-bound (UBSAN) with byte size cells
+      Merge: leds: trigger: Unregister sysfs attributes before calling deactivate() [rhel-9.4.z]
+      Merge: CVE-2024-26603: Stop relying on userspace for info to fault in xsave buffer that cause loop forever
+      Merge: CVE-2023-52922: can: bcm: Fix UAF in bcm_proc_show()
+      Merge: redhat: drop Y issues from changelog
+      [redhat] kernel-5.14.0-427.58.1.el9_4
+      Merge: CVE-2024-50302: HID: core: zero-initialize the report buffer
+      Merge: CVE-2024-53197 kernel: ALSA: usb-audio: Fix potential out-of-bound accesses for Extigy and Mbox devices  [rhel-9.4.z]
+      [redhat] kernel-5.14.0-427.59.1.el9_4
+      Merge: PCI/PM: Drain runtime-idle callbacks before driver removal [rhel-9.4.z]
+      Merge: [RHEL-9.6] ena driver update to v6.11  [rhel-9.4.z]
+      Merge: CVE-2024-27014: Prevent deadlock while disabling aRFS
+      Merge: AF_PACKET performance degradation on higher core count platforms
+      Merge: CVE-2024-35835: fix a double-free in arfs_create_groups
+      Merge: CVE-2024-26872: Do not register event handler until srpt device is fully setup
+      Merge: ACPI: extlog: fix NULL pointer dereference check [rhel-9.4.z]
+      Merge: idpf: call set_real_num_queues in idpf_open [rhel-9.4.z]
+      Merge: i40e: add ability to reset VF for Tx and Rx MDD events [rhel-9.4.z]
+      Merge: x86/kexec: Add EFI config table identity mapping for kexec kernel [rhel-9.4.z]
+      Merge: CVE-2024-43892: memcg: protect concurrent access to mem_cgroup_idr
+      Merge: [rhel9.4-z] unchecked MSR access error: RDMSR from 0x771 at rIP: 0xffffffffa2857c1b (__rdmsr_on_cpu+0x2b/0x60)
+      [redhat] kernel-5.14.0-427.60.1.el9_4
+      Merge: CVE-2024-35854: Fix possible use-after-free during rehash
+      Merge: netfilter: nf_conntrack_h323: Add protection for bmp length out of range [rhel-9.4.z]
+      Merge: drm/vmwgfx: Create debugfs ttm_resource_manager entry only if needed [rhel-9.4.z]
+      Merge: arp: Prevent overflow in arp_req_get(). [rhel-9.4.z]
+      Merge: ftruncate: pass a signed offset [rhel-9.4.z]
+      Merge: [9.4.z] NFS TLS fixes for Ontap/SAP supportex
+      Merge: ipv4: Fix uninit-value access in __ip_make_skb() [rhel-9.4.z]
+      Merge: CVE-2025-21785: arm64: cacheinfo: Avoid out-of-bounds write to cacheinfo array
+      Merge: ipv6: prevent NULL dereference in ip6_output() [rhel-9.4.z]
+      Merge: CVE-2024-24857 kernel: race condition in conn_info_{min,max}_age_set()
+      Merge: scsi: mpi3mr: Avoid memcpy field-spanning write WARNING [rhel-9.4.z]
+      Merge: CVE-2024-42265: protect the fetch of ->fd[fd] in do_dup2() from mispredictions
+      Merge: x86/kaslr: Expose and use the end of the physical memory address space
+      [redhat] kernel-5.14.0-427.61.1.el9_4
+      Merge: KVM: Always flush async #PF workqueue when vCPU is being destroyed [rhel-9.4.z]
+      Merge: CVE-2024-35888: make sure erspan_base_hdr is present in skb-&gt;head
+      Merge: CVE-2024-27010 kernel: Fix mirred deadlock on device recursion  [rhel-9.4.z]
+      Merge: net/mlx5e: Fix features validation check for tunneled UDP (non-VXLAN) packets
+      Merge: drm/vmwgfx: Fix the lifetime of the bo cursor memory [rhel-9.4.z]
+      Merge: vsock/virtio: Initialization of the dangling pointer occurring in vsk->trans [rhel-9.4.z]
+      Merge: RHEL 9.4:Root port link speed degradation from 16GT/s to 2.5GT/s after hotplug  [rhel-9.4.z]
+      Merge: CVE-2024-23848 kernel: use-after-free in cec_queue_msg_fh  [rhel-9.4.z]
+      Merge: KVM: arm64: Unconditionally save+flush host FPSIMD/SVE/SME state [rhel-9.4.z]
+      Merge: SUNRPC: fix a memleak in gss_import_v2_context [rhel-9.4.z]
+      Merge: block: prevent division by zero in blk_rq_stat_sum() [rhel-9.4.z]
+      Merge: wifi: nl80211: reject iftype change with mesh ID change [rhel-9.4.z]
+      [redhat] kernel-5.14.0-427.62.1.el9_4
+
+Thomas Huth (7):
+      KVM: s390: vsie: Use virt_to_phys for facility control block
+      KVM: s390: vsie: Use virt_to_phys for crypto control block
+      KVM: s390: remove useless include
+      s390/uv: Panic for set and remove shared access UVC errors
+      KVM: s390: Fix SORTL and DFLTCC instruction format error in __insn32_query
+      KVM: s390: gaccess: Check if guest address is in memslot
+      KVM: s390: Change virtual to physical address access in diag 0x258 handler
+
+Waiman Long (1):
+      x86/kaslr: Expose and use the end of the physical memory address space
+
+Zhili Li (1):
+      redhat: drop Y issues from changelog
