@@ -35,10 +35,10 @@ Profile the `thread_load` process:
 Terminated
 ```
 
-> **NOTE: ** Step 3 should be executed while on another terminal the following command its being executed:
+> ** NOTE: ** Step 3 should be executed while on another terminal the following command its being executed:
 
 ```bash
-$ ./thread_load -b 100 -m 100 -i 90 -d 10 -o 10000000 -t 1 -l 10
+$ sudo ./thread_load -b 100 -m 100 -i 90 -d 10 -o 10000000 -t 1 -l 10
 [16:21:27] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 90, THREAD_BATCH = 100, MAX_THREADS = 100, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
 [16:21:27] [Parent] Forked child process 2017174
 [16:21:27] [Parent] All processes and threads launched. Parent entering infinite wait mode.
@@ -53,4 +53,25 @@ $ ./thread_load -b 100 -m 100 -i 90 -d 10 -o 10000000 -t 1 -l 10
 [root@4681694987cf /]# perf report -i perf.data 
 ```
 
+5. Copy the performance data outside of the `support-tools-with-perf` container:
 
+```bash
+[root@cnfdc13 ~]# podman ps 
+CONTAINER ID  IMAGE                                        COMMAND     CREATED            STATUS            PORTS       NAMES
+4681694987cf  quay.io/midu/support-tools-with-perf:latest  bash        About an hour ago  Up About an hour              relaxed_noyce
+[root@cnfdc13 ~]# podman cp relaxed_noyce:/perf.data /var/home/core/midu/perf-5.14.0-427.58.1.el9_4.x86_64.data
+[root@cnfdc13 ~]# ls -l /var/home/core/midu/perf-5.14.0-427.58.1.el9_4.x86_64.data
+-rw-------. 1 root root 365020538 May 17 16:21 /var/home/core/midu/perf-5.14.0-427.58.1.el9_4.x86_64.data
+```
+
+6. Testing coverage
+
+> ** NOTE: ** The performance tests were covering the OpenShift 4.16.37 following kernels:
+> - kernel-5.14.0-427.57.1.el9_4.x86_64 - the OpenShift 4.16.37 default kernel
+> - [kernel-5.14.0-427.58.1.el9_4.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-427.58.1.el9_4.x86_64/99-kernel-5.14.0-427.58.1.el9_4.x86_64.yaml)
+> - [kernel-5.14.0-427.59.1.el9_4.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-427.59.1.el9_4.x86_64/99-kernel-5.14.0-427.59.1.el9_4.x86_64.yaml)
+> - [kernel-5.14.0-427.60.1.el9_4.x86_64]
+> - [kernel-5.14.0-427.61.1.el9_4.x86_64]
+> - [kernel-5.14.0-427.62.1.el9_4.x86_64] - the Openshift 4.16.38 default kernel
+> - [kernel-5.14.0-427.63.1.el9_4.x86_64]
+> - [kernel-5.14.0-427.64.1.el9_4.x86_64]
