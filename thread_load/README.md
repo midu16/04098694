@@ -55,6 +55,8 @@ $ sudo ./thread_load -b 100 -m 100 -i 90 -d 10 -o 10000000 -t 1 -l 10
 
 5. Copy the performance data outside of the `support-tools-with-perf` container:
 
+> ** NOTE: ** The `support-tools-with-perf` [Containerfile](./support-tools/Containerfile)
+
 ```bash
 [root@cnfdc13 ~]# podman ps 
 CONTAINER ID  IMAGE                                        COMMAND     CREATED            STATUS            PORTS       NAMES
