@@ -1,0 +1,10 @@
+FROM fedora:42
+USER root
+
+RUN dnf install -y iproute \
+                   tcpdump \
+		   perf \ 
+		   strace \ 
+                   procps-ng && dnf clean all
+CMD ["/bin/bash"]
+
