@@ -1,7 +1,17 @@
-# Containerfile
-
-# Use the official Fedora base image
+# syntax=docker/dockerfile:1
 FROM fedora:latest
+
+# Install required packages for building and using XDP programs
+RUN dnf install -y \
+    clang llvm gcc make \
+    iproute iproute-tc iputils ethtool \
+    kernel-headers kernel-devel \
+    kernel-devel libbpf-devel \
+    bpftool elfutils-libelf-devel libpcap-devel perf glibc-devel.i686 \
+    git \
+    glibc-devel \
+    tcpdump \
+    && dnf clean all
 
 # Set metadata (optional but recommended)
 LABEL maintainer="midu@redhat.com"
@@ -18,6 +28,19 @@ RUN dnf -y install \
     bpftool \
     ethtool && \
     dnf clean all
+
+# Set working directory
+WORKDIR /xdp
+
+# Copy XDP program and loader script
+COPY xdp_redirect.c ./
+
+# Clone kernel headers to get bpf_helpers.h
+RUN git clone --depth=1 https://github.com/torvalds/linux.git /kernel-headers
+
+# Compile XDP program using kernel headers
+# Get Clang and GCC versions
+RUN clang -O2 -g -Wall -target bpf -c /xdp/xdp_redirect.c -o /xdp/xdp_redirect.o
 
 # Set default command (optional)
 CMD ["/bin/bash"]
