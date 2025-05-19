@@ -86,6 +86,7 @@ kind: ServiceAccount
 metadata:
   name: xdp-user
   namespace: xdp-tools-test
+# xdp-a pod
 ---
 apiVersion: v1
 kind: Pod
@@ -114,9 +115,55 @@ spec:
         - |
           echo "$XDP_PROG" > /xdp/xdp_redirect.c
           clang -O2 -g -Wall -target bpf -c /xdp/xdp_redirect.c -o /xdp/xdp_redirect.o
-          ip link set dev net1 up
           ip addr add 10.10.0.10/24 dev net1
-          ip link set dev net1 xdp obj /xdp/xdp_redirect.o sec xdp_redirect_prog
+          ip link set dev net1 up
+          ip link set dev net1 xdp obj /xdp/xdp_redirect.o sec xdp
+      env:
+        - name: XDP_PROG
+          valueFrom:
+            configMapKeyRef:
+              name: xdp-redirect-code
+              key: xdp_redirect.c
+      volumeMounts:
+        - name: xdp-src
+          mountPath: /xdp
+      securityContext:
+        privileged: true
+  volumes:
+    - name: xdp-src
+      emptyDir: {}
+# xdp-b pod
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: xdp-b
+  namespace: xdp-tools-test
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[{ "name": "xdp-net" }]'
+spec:
+  hostNetwork: false
+  serviceAccountName: xdp-user
+  nodeSelector:
+    kubernetes.io/hostname: cnfdc13.t5g-dev.eng.rdu2.dc.redhat.com
+  containers:
+    - name: main
+      image: quay.io/midu/fedora-xdp-tools:latest
+      command: ["/bin/bash", "-c", "sleep infinity"]
+      securityContext:
+        privileged: true
+  initContainers:
+    - name: xdp-setup
+      image: quay.io/midu/fedora-xdp-tools:latest
+      command:
+        - /bin/sh
+        - -c
+        - |
+          echo "$XDP_PROG" > /xdp/xdp_redirect.c
+          clang -O2 -g -Wall -target bpf -c /xdp/xdp_redirect.c -o /xdp/xdp_redirect.o
+          ip addr add 10.10.0.20/24 dev net1
+          ip link set dev net1 up
+          ip link set dev net1 xdp obj /xdp/xdp_redirect.o sec xdp
       env:
         - name: XDP_PROG
           valueFrom:
