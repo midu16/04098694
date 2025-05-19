@@ -1,0 +1,23 @@
+# Containerfile
+
+# Use the official Fedora base image
+FROM fedora:latest
+
+# Set metadata (optional but recommended)
+LABEL maintainer="midu@redhat.com"
+LABEL description="Fedora container with XDP-related networking tools"
+LABEL version="1.0"
+
+# Install required packages
+RUN dnf -y install \
+    lksctp-tools \
+    conntrack \
+    libbpf \
+    libxdp \
+    xdp-tools \
+    bpftool \
+    ethtool && \
+    dnf clean all
+
+# Set default command (optional)
+CMD ["/bin/bash"]
