@@ -72,8 +72,9 @@ CONTAINER ID  IMAGE                                        COMMAND     CREATED  
 > - kernel-5.14.0-427.57.1.el9_4.x86_64 - the OpenShift 4.16.37 default kernel
 > - [kernel-5.14.0-427.58.1.el9_4.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-427.58.1.el9_4.x86_64/99-kernel-5.14.0-427.58.1.el9_4.x86_64.yaml)
 > - [kernel-5.14.0-427.59.1.el9_4.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-427.59.1.el9_4.x86_64/99-kernel-5.14.0-427.59.1.el9_4.x86_64.yaml)
-> - [kernel-5.14.0-427.60.1.el9_4.x86_64]
-> - [kernel-5.14.0-427.61.1.el9_4.x86_64]
+> - [kernel-5.14.0-427.60.1.el9_4.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-427.59.1.el9_4.x86_64/99-kernel-5.14.0-427.60.1.el9_4.x86_64.yaml)
+> - [kernel-5.14.0-427.61.1.el9_4.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-427.59.1.el9_4.x86_64/99-kernel-5.14.0-427.61.1.el9_4.x86_64.yaml)
 > - [kernel-5.14.0-427.62.1.el9_4.x86_64] - the Openshift 4.16.38 default kernel
-> - [kernel-5.14.0-427.63.1.el9_4.x86_64]
-> - [kernel-5.14.0-427.64.1.el9_4.x86_64]
+> - [kernel-5.14.0-427.63.1.el9_4.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-427.63.1.el9_4.x86_64/99-kernel-5.14.0-427.63.1.el9_4.x86_64.yaml)
+> - [kernel-5.14.0-427.64.1.el9_4.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-427.64.1.el9_4.x86_64/99-kernel-5.14.0-427.64.1.el9_4.x86_64.yaml)
+> - [kernel-5.14.0-570.16.1.el9_6.x86_64](https://github.com/midu16/rhcos-layering/blob/main/kernel-5.14.0-570.16.1.el9_6.x86_64/99-kernel-5.14.0-570.16.1.el9_6.x86_64.yaml)
