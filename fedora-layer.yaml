@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fedora-layer-ng
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fedora-layer
+  namespace: fedora-layer-ng
+spec:
+  replicas: 100
+  selector:
+    matchLabels:
+      app: fedora-layer-ng
+  template:
+    metadata:
+      labels:
+        app: fedora-layer-ng
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: cnfdc13.t5g-dev.eng.rdu2.dc.redhat.com
+      containers:
+      - name: fedora-layer-ng
+        image: quay.io/midu/fedora-lyaer:latest
+        command:
+        - /bin/sh
+        args:
+        - -c
+        - ["sleep infinity"]
+        resources:
+          requests:
+            memory: "300Mi"
+            cpu: "1m"
+          limits:
+            memory: "20Gi"
+            cpu: "10"
+        livenessProbe:
+          exec:
+            command:
+            - pgrep
+            - fedora-layer-ng
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - pgrep
+            - fedora-layer-ng
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3

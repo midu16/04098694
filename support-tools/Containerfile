@@ -3,8 +3,18 @@ USER root
 
 RUN dnf install -y iproute \
                    tcpdump \
-		   perf \ 
-		   strace \ 
-                   procps-ng && dnf clean all
-CMD ["/bin/bash"]
+                   perf \
+                   strace \
+                   procps-ng \
+                   trace-cmd \
+                   bpftrace \
+                   bcc \
+                   kernel-modules \
+                   kernel-devel \
+                   clang \
+                   llvm \
+                   make \
+                   elfutils-libelf-devel && \
+    dnf clean all
 
+CMD ["/bin/bash"]
