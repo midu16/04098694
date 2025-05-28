@@ -99,7 +99,7 @@ spec:
   hostNetwork: false
   serviceAccountName: xdp-user
   nodeSelector:
-    kubernetes.io/hostname: cnfdc13.t5g-dev.eng.rdu2.dc.redhat.com
+    kubernetes.io/hostname: cnfdc12.t5g-dev.eng.rdu2.dc.redhat.com
   containers:
     - name: main
       image: quay.io/midu/ubi-xdp-tools:latest
@@ -128,7 +128,14 @@ spec:
         - name: xdp-src
           mountPath: /xdp
       securityContext:
-        privileged: true
+        privileged: false
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
   volumes:
     - name: xdp-src
       emptyDir: {}
@@ -145,7 +152,7 @@ spec:
   hostNetwork: false
   serviceAccountName: xdp-user
   nodeSelector:
-    kubernetes.io/hostname: cnfdc13.t5g-dev.eng.rdu2.dc.redhat.com
+    kubernetes.io/hostname: cnfdc12.t5g-dev.eng.rdu2.dc.redhat.com
   containers:
     - name: main
       image: quay.io/midu/ubi-xdp-tools:latest
@@ -174,7 +181,14 @@ spec:
         - name: xdp-src
           mountPath: /xdp
       securityContext:
-        privileged: true
+        privileged: false
+        allowPrivilegeEscalation: false
+        capabilities:
+          drop:
+            - ALL
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
   volumes:
     - name: xdp-src
       emptyDir: {}
