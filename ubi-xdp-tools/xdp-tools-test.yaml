@@ -1,0 +1,180 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: xdp-tools-test
+---
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: xdp-scc
+allowPrivilegedContainer: true
+allowHostNetwork: false
+allowHostPorts: false
+allowHostPID: false
+allowHostIPC: false
+allowHostDirVolumePlugin: true
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+fsGroup:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+volumes:
+  - '*'
+readOnlyRootFilesystem: false
+users:
+  - system:serviceaccount:xdp-tools-test:xdp-user
+
+# If you want to fake it for experimentation:
+# ip link add dummy0 type dummy
+# ip link set dummy0 up
+# 80: dummy0: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
+#     link/ether 7e:55:4d:95:88:be brd ff:ff:ff:ff:ff:ff
+#     inet6 fe80::7c55:4dff:fe95:88be/64 scope link 
+#        valid_lft forever preferred_lft forever
+# 
+---
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: xdp-net
+  namespace: xdp-tools-test
+spec:
+  config: '{
+    "cniVersion": "0.3.1",
+    "type": "macvlan",
+    "master": "dummy0",
+    "mode": "bridge",
+    "ipam": {
+      "type": "static",
+      "addresses": [
+        { "address": "10.10.0.10/24", "gateway": "10.10.0.1" }
+      ]
+    }
+  }'
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xdp-redirect-code
+  namespace: xdp-tools-test
+data:
+  xdp_redirect.c: |
+    #include <linux/bpf.h>
+    #include <bpf/bpf_helpers.h>
+
+    struct {
+        __uint(type, BPF_MAP_TYPE_DEVMAP);
+        __uint(max_entries, 2);
+        __type(key, __u32);
+        __type(value, __u32);
+    } tx_port SEC(".maps");
+
+    SEC("xdp")
+    int xdp_redirect_prog(struct xdp_md *ctx) {
+        __u32 index = 1;
+        return bpf_redirect_map(&tx_port, index, 0);
+    }
+
+    char LICENSE[] SEC("license") = "GPL";
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: xdp-user
+  namespace: xdp-tools-test
+# xdp-a pod
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: xdp-a
+  namespace: xdp-tools-test
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[{ "name": "xdp-net" }]'
+spec:
+  hostNetwork: false
+  serviceAccountName: xdp-user
+  nodeSelector:
+    kubernetes.io/hostname: cnfdc13.t5g-dev.eng.rdu2.dc.redhat.com
+  containers:
+    - name: main
+      image: quay.io/midu/ubi-xdp-tools:latest
+      command: ["/bin/bash", "-c", "sleep infinity"]
+      securityContext:
+        privileged: true
+  initContainers:
+    - name: xdp-setup
+      image: quay.io/midu/ubi-xdp-tools:latest
+      command:
+        - /bin/sh
+        - -c
+        - |
+          echo "$XDP_PROG" > /xdp/xdp_redirect.c
+          clang -O2 -g -Wall -target bpf -c /xdp/xdp_redirect.c -o /xdp/xdp_redirect.o
+          ip addr add 10.10.0.10/24 dev net1
+          ip link set dev net1 up
+          ip link set dev net1 xdp obj /xdp/xdp_redirect.o sec xdp
+      env:
+        - name: XDP_PROG
+          valueFrom:
+            configMapKeyRef:
+              name: xdp-redirect-code
+              key: xdp_redirect.c
+      volumeMounts:
+        - name: xdp-src
+          mountPath: /xdp
+      securityContext:
+        privileged: true
+  volumes:
+    - name: xdp-src
+      emptyDir: {}
+# xdp-b pod
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: xdp-b
+  namespace: xdp-tools-test
+  annotations:
+    k8s.v1.cni.cncf.io/networks: '[{ "name": "xdp-net" }]'
+spec:
+  hostNetwork: false
+  serviceAccountName: xdp-user
+  nodeSelector:
+    kubernetes.io/hostname: cnfdc13.t5g-dev.eng.rdu2.dc.redhat.com
+  containers:
+    - name: main
+      image: quay.io/midu/ubi-xdp-tools:latest
+      command: ["/bin/bash", "-c", "sleep infinity"]
+      securityContext:
+        privileged: true
+  initContainers:
+    - name: xdp-setup
+      image: quay.io/midu/ubi-xdp-tools:latest
+      command:
+        - /bin/sh
+        - -c
+        - |
+          echo "$XDP_PROG" > /xdp/xdp_redirect.c
+          clang -O2 -g -Wall -target bpf -c /xdp/xdp_redirect.c -o /xdp/xdp_redirect.o
+          ip addr add 10.10.0.20/24 dev net1
+          ip link set dev net1 up
+          ip link set dev net1 xdp obj /xdp/xdp_redirect.o sec xdp
+      env:
+        - name: XDP_PROG
+          valueFrom:
+            configMapKeyRef:
+              name: xdp-redirect-code
+              key: xdp_redirect.c
+      volumeMounts:
+        - name: xdp-src
+          mountPath: /xdp
+      securityContext:
+        privileged: true
+  volumes:
+    - name: xdp-src
+      emptyDir: {}
