@@ -6,10 +6,21 @@ RUN dnf install -y \
     clang llvm gcc make \
     iproute iproute-tc iputils ethtool \
     kernel-headers kernel-devel \
-    libbpf libbpf-devel \
+    libbpf \
     bpftool elfutils-libelf-devel libpcap-devel perf \
     glibc-devel glibc-devel.i686 \
     git tcpdump lksctp-tools conntrack xdp-tools libxdp \
+    && dnf clean all
+
+RUN dnf config-manager --set-enabled codeready-builder-for-rhel-9-x86_64-rpms
+
+# Install needed packages
+RUN dnf install -y \
+    clang llvm gcc make \
+    libbpf-devel libxdp-devel \
+    kernel-headers kernel-devel \
+    bpftool xdp-tools iproute \
+    libpcap-devel elfutils-libelf-devel glibc-devel \
     && dnf clean all
 
 # Set metadata
@@ -23,11 +34,11 @@ WORKDIR /xdp
 # Copy XDP program and loader script
 COPY xdp_redirect.c ./
 
-# Clone kernel headers to get bpf_helpers.h
-RUN git clone --depth=1 https://github.com/torvalds/linux.git /kernel-headers
-
-# Compile XDP program
-RUN clang -O2 -g -Wall -target bpf -I/kernel-headers/tools/lib/bpf/ -c /xdp/xdp_redirect.c -o /xdp/xdp_redirect.o
+# Compile the XDP program using system-provided headers
+RUN clang -O2 -g -Wall -target bpf \
+    -I/usr/include/ \
+    -I/usr/include/bpf/ \
+    -c xdp_redirect.c -o xdp_redirect.o
 
 # Set default command
 CMD ["/bin/bash"]
