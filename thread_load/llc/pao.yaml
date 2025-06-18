@@ -2,9 +2,18 @@ apiVersion: performance.openshift.io/v2
 kind: PerformanceProfile
 metadata:
   name: thread-test-worker-profile
-  annotations:
+  annotations: #cache awareness annotation 
     kubeletconfig.experimental: |
-      {"systemReserved": {"memory": "40Gi"}, "topologyManagerScope": "pod"}}
+      {
+        "cpuManagerPolicyOptions": {
+          "prefer-align-cpus-by-uncorecache": "true",
+          "full-pcpus-only": "true"
+        },
+        "systemReserved": {
+          "memory": "40Gi"
+        },
+        "topologyManagerScope": "pod"
+      }
 spec:
   cpu:
     isolated: "4-95,196-287,100-191,292-383"    # Isolate bulk of cores across both NUMA nodes
