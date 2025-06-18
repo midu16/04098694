@@ -1,0 +1,810 @@
+[root@cnfdc12-installer midu]# oc logs -n thread-test thread-test-6f98949f9c-57jjx -f
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:29:00] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 5, MAX_THREADS = 5, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:29:00] [Parent] Forked child process 16396
+[21:29:00] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:29:00] [Child] Process 16396 started
+[21:29:00] [Child] Created 5 threads, batch starting at 0
+[21:31:28] operation finished - 10000000
+
+task-clock: 128896393643 128896393643 128896393643
+context-switches: 10019342 128896393643 128896393643
+cpu-migrations: 34 128896393643 128896393643
+page-faults: 132 128896393643 128896393643
+instructions: 92387898200 128896393643 128896393643
+cycles: 159246418568 128896393643 128896393643
+stalled-cycles-frontend: 12217882499 128896393643 128896393643
+stalled-cycles-backend: 48606982355 128896393643 128896393643
+branches: 23431023391 128896393643 128896393643
+branch-misses: 2702729037 128896393643 128896393643
+
+ Performance counter stats for './thread_load -b 5 -m 5 -d 10 -o 10000000 -t 1 -l 10':
+
+         128896.39 msec task-clock                       #    0.869 CPUs utilized             
+          10019342      context-switches                 #   77.732 K/sec                     
+                34      cpu-migrations                   #    0.264 /sec                      
+               132      page-faults                      #    1.024 /sec                      
+       92387898200      instructions                     #    0.58  insn per cycle            
+                                                  #    0.53  stalled cycles per insn   
+      159246418568      cycles                           #    1.235 GHz                       
+       12217882499      stalled-cycles-frontend          #    7.67% frontend cycles idle      
+       48606982355      stalled-cycles-backend           #   30.52% backend cycles idle       
+       23431023391      branches                         #  181.782 M/sec                     
+        2702729037      branch-misses                    #   11.53% of all branches           
+
+     148.321543577 seconds time elapsed
+
+       7.536628000 seconds user
+     118.320379000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:31:34] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 10, MAX_THREADS = 10, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:31:34] [Parent] Forked child process 21727
+[21:31:34] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:31:34] [Child] Process 21727 started
+[21:31:34] [Child] Created 10 threads, batch starting at 0
+[21:32:47] operation finished - 10000000
+
+task-clock: 129485487479 129485487479 129485487479
+context-switches: 10097200 129485487479 129485487479
+cpu-migrations: 18 129485487479 129485487479
+page-faults: 148 129485487479 129485487479
+instructions: 93310907406 129485487479 129485487479
+cycles: 165201877049 129485487479 129485487479
+stalled-cycles-frontend: 2219390949 129485487479 129485487479
+stalled-cycles-backend: 60317709618 129485487479 129485487479
+branches: 23642479196 129485487479 129485487479
+branch-misses: 2734723817 129485487479 129485487479
+
+ Performance counter stats for './thread_load -b 10 -m 10 -d 10 -o 10000000 -t 1 -l 10':
+
+         129485.49 msec task-clock                       #    1.742 CPUs utilized             
+          10097200      context-switches                 #   77.979 K/sec                     
+                18      cpu-migrations                   #    0.139 /sec                      
+               148      page-faults                      #    1.143 /sec                      
+       93310907406      instructions                     #    0.56  insn per cycle            
+                                                  #    0.65  stalled cycles per insn   
+      165201877049      cycles                           #    1.276 GHz                       
+        2219390949      stalled-cycles-frontend          #    1.34% frontend cycles idle      
+       60317709618      stalled-cycles-backend           #   36.51% backend cycles idle       
+       23642479196      branches                         #  182.588 M/sec                     
+        2734723817      branch-misses                    #   11.57% of all branches           
+
+      74.320602261 seconds time elapsed
+
+       8.274573000 seconds user
+     118.463352000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:32:53] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 15, MAX_THREADS = 15, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:32:53] [Parent] Forked child process 24147
+[21:32:53] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:32:53] [Child] Process 24147 started
+[21:32:53] [Child] Created 15 threads, batch starting at 0
+[21:33:42] operation finished - 10000000
+
+task-clock: 130892149964 130892149964 130892149964
+context-switches: 10152259 130892149964 130892149964
+cpu-migrations: 16 130892149964 130892149964
+page-faults: 158 130892149964 130892149964
+instructions: 93800332460 130892149964 130892149964
+cycles: 170079057942 130892149964 130892149964
+stalled-cycles-frontend: 7805710053 130892149964 130892149964
+stalled-cycles-backend: 57237587459 130892149964 130892149964
+branches: 23752451781 130892149964 130892149964
+branch-misses: 2751457226 130892149964 130892149964
+
+ Performance counter stats for './thread_load -b 15 -m 15 -d 10 -o 10000000 -t 1 -l 10':
+
+         130892.15 msec task-clock                       #    2.628 CPUs utilized             
+          10152259      context-switches                 #   77.562 K/sec                     
+                16      cpu-migrations                   #    0.122 /sec                      
+               158      page-faults                      #    1.207 /sec                      
+       93800332460      instructions                     #    0.55  insn per cycle            
+                                                  #    0.61  stalled cycles per insn   
+      170079057942      cycles                           #    1.299 GHz                       
+        7805710053      stalled-cycles-frontend          #    4.59% frontend cycles idle      
+       57237587459      stalled-cycles-backend           #   33.65% backend cycles idle       
+       23752451781      branches                         #  181.466 M/sec                     
+        2751457226      branch-misses                    #   11.58% of all branches           
+
+      49.797543828 seconds time elapsed
+
+       8.837546000 seconds user
+     119.649313000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:33:48] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 20, MAX_THREADS = 20, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:33:48] [Parent] Forked child process 25775
+[21:33:48] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:33:48] [Child] Process 25775 started
+[21:33:48] [Child] Created 20 threads, batch starting at 0
+[21:34:24] operation finished - 10000000
+
+task-clock: 137589990642 137589990642 137589990642
+context-switches: 10237243 137589990642 137589990642
+cpu-migrations: 54 137589990642 137589990642
+page-faults: 180 137589990642 137589990642
+instructions: 95870009004 137589990642 137589990642
+cycles: 182879684022 137589990642 137589990642
+stalled-cycles-frontend: 2917818153 137589990642 137589990642
+stalled-cycles-backend: 66781383889 137589990642 137589990642
+branches: 24272801253 137589990642 137589990642
+branch-misses: 2807363902 137589990642 137589990642
+
+ Performance counter stats for './thread_load -b 20 -m 20 -d 10 -o 10000000 -t 1 -l 10':
+
+         137589.99 msec task-clock                       #    3.660 CPUs utilized             
+          10237243      context-switches                 #   74.404 K/sec                     
+                54      cpu-migrations                   #    0.392 /sec                      
+               180      page-faults                      #    1.308 /sec                      
+       95870009004      instructions                     #    0.52  insn per cycle            
+                                                  #    0.70  stalled cycles per insn   
+      182879684022      cycles                           #    1.329 GHz                       
+        2917818153      stalled-cycles-frontend          #    1.60% frontend cycles idle      
+       66781383889      stalled-cycles-backend           #   36.52% backend cycles idle       
+       24272801253      branches                         #  176.414 M/sec                     
+        2807363902      branch-misses                    #   11.57% of all branches           
+
+      37.589307982 seconds time elapsed
+
+       9.301840000 seconds user
+     125.929017000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:34:30] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 25, MAX_THREADS = 25, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:34:30] [Parent] Forked child process 27126
+[21:34:30] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:34:30] [Child] Process 27126 started
+[21:34:30] [Child] Created 25 threads, batch starting at 0
+[21:35:00] operation finished - 10000000
+
+task-clock: 145629406211 145629406211 145629406211
+context-switches: 10250897 145629406211 145629406211
+cpu-migrations: 56 145629406211 145629406211
+page-faults: 194 145629406211 145629406211
+instructions: 97367415549 145629406211 145629406211
+cycles: 199496511805 145629406211 145629406211
+stalled-cycles-frontend: 7727767842 145629406211 145629406211
+stalled-cycles-backend: 66868871596 145629406211 145629406211
+branches: 24628477794 145629406211 145629406211
+branch-misses: 2838825621 145629406211 145629406211
+
+ Performance counter stats for './thread_load -b 25 -m 25 -d 10 -o 10000000 -t 1 -l 10':
+
+         145629.41 msec task-clock                       #    4.804 CPUs utilized             
+          10250897      context-switches                 #   70.390 K/sec                     
+                56      cpu-migrations                   #    0.385 /sec                      
+               194      page-faults                      #    1.332 /sec                      
+       97367415549      instructions                     #    0.49  insn per cycle            
+                                                  #    0.69  stalled cycles per insn   
+      199496511805      cycles                           #    1.370 GHz                       
+        7727767842      stalled-cycles-frontend          #    3.87% frontend cycles idle      
+       66868871596      stalled-cycles-backend           #   33.52% backend cycles idle       
+       24628477794      branches                         #  169.117 M/sec                     
+        2838825621      branch-misses                    #   11.53% of all branches           
+
+      30.312936588 seconds time elapsed
+
+       9.822188000 seconds user
+     133.573162000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:35:06] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 30, MAX_THREADS = 30, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:35:06] [Parent] Forked child process 28209
+[21:35:06] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:35:06] [Child] Process 28209 started
+[21:35:06] [Child] Created 30 threads, batch starting at 0
+[21:35:30] operation finished - 10000000
+
+task-clock: 148580290482 148580290482 148580290482
+context-switches: 10266063 148580290482 148580290482
+cpu-migrations: 93 148580290482 148580290482
+page-faults: 211 148580290482 148580290482
+instructions: 97618055970 148580290482 148580290482
+cycles: 203948056712 148580290482 148580290482
+stalled-cycles-frontend: 5330905687 148580290482 148580290482
+stalled-cycles-backend: 70787140848 148580290482 148580290482
+branches: 24694275678 148580290482 148580290482
+branch-misses: 2848718316 148580290482 148580290482
+
+ Performance counter stats for './thread_load -b 30 -m 30 -d 10 -o 10000000 -t 1 -l 10':
+
+         148580.29 msec task-clock                       #    5.782 CPUs utilized             
+          10266063      context-switches                 #   69.094 K/sec                     
+                93      cpu-migrations                   #    0.626 /sec                      
+               211      page-faults                      #    1.420 /sec                      
+       97618055970      instructions                     #    0.48  insn per cycle            
+                                                  #    0.73  stalled cycles per insn   
+      203948056712      cycles                           #    1.373 GHz                       
+        5330905687      stalled-cycles-frontend          #    2.61% frontend cycles idle      
+       70787140848      stalled-cycles-backend           #   34.71% backend cycles idle       
+       24694275678      branches                         #  166.202 M/sec                     
+        2848718316      branch-misses                    #   11.54% of all branches           
+
+      25.696867689 seconds time elapsed
+
+      10.079735000 seconds user
+     136.040693000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:35:36] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 35, MAX_THREADS = 35, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:35:36] [Parent] Forked child process 29126
+[21:35:36] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:35:36] [Child] Process 29126 started
+[21:35:36] [Child] Created 35 threads, batch starting at 0
+[21:35:58] operation finished - 10000000
+
+task-clock: 144532212635 144532212635 144532212635
+context-switches: 10343681 144532212635 144532212635
+cpu-migrations: 124 144532212635 144532212635
+page-faults: 226 144532212635 144532212635
+instructions: 98123364370 144532212635 144532212635
+cycles: 197578784116 144532212635 144532212635
+stalled-cycles-frontend: 9088619176 144532212635 144532212635
+stalled-cycles-backend: 64187527537 144532212635 144532212635
+branches: 24817371987 144532212635 144532212635
+branch-misses: 2869844485 144532212635 144532212635
+
+ Performance counter stats for './thread_load -b 35 -m 35 -d 10 -o 10000000 -t 1 -l 10':
+
+         144532.21 msec task-clock                       #    6.464 CPUs utilized             
+          10343681      context-switches                 #   71.567 K/sec                     
+               124      cpu-migrations                   #    0.858 /sec                      
+               226      page-faults                      #    1.564 /sec                      
+       98123364370      instructions                     #    0.50  insn per cycle            
+                                                  #    0.65  stalled cycles per insn   
+      197578784116      cycles                           #    1.367 GHz                       
+        9088619176      stalled-cycles-frontend          #    4.60% frontend cycles idle      
+       64187527537      stalled-cycles-backend           #   32.49% backend cycles idle       
+       24817371987      branches                         #  171.708 M/sec                     
+        2869844485      branch-misses                    #   11.56% of all branches           
+
+      22.360873078 seconds time elapsed
+
+      10.062151000 seconds user
+     131.683963000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:36:04] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 40, MAX_THREADS = 40, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:36:04] [Parent] Forked child process 30027
+[21:36:04] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:36:04] [Child] Process 30027 started
+[21:36:04] [Child] Created 40 threads, batch starting at 0
+[21:36:23] operation finished - 10000000
+
+task-clock: 144813108018 144813108018 144813108018
+context-switches: 10322250 144813108018 144813108018
+cpu-migrations: 380 144813108018 144813108018
+page-faults: 239 144813108018 144813108018
+instructions: 98005242071 144813108018 144813108018
+cycles: 197417182465 144813108018 144813108018
+stalled-cycles-frontend: 9536178972 144813108018 144813108018
+stalled-cycles-backend: 63948237157 144813108018 144813108018
+branches: 24788702291 144813108018 144813108018
+branch-misses: 2865730958 144813108018 144813108018
+
+ Performance counter stats for './thread_load -b 40 -m 40 -d 10 -o 10000000 -t 1 -l 10':
+
+         144813.11 msec task-clock                       #    7.281 CPUs utilized             
+          10322250      context-switches                 #   71.280 K/sec                     
+               380      cpu-migrations                   #    2.624 /sec                      
+               239      page-faults                      #    1.650 /sec                      
+       98005242071      instructions                     #    0.50  insn per cycle            
+                                                  #    0.65  stalled cycles per insn   
+      197417182465      cycles                           #    1.363 GHz                       
+        9536178972      stalled-cycles-frontend          #    4.83% frontend cycles idle      
+       63948237157      stalled-cycles-backend           #   32.39% backend cycles idle       
+       24788702291      branches                         #  171.177 M/sec                     
+        2865730958      branch-misses                    #   11.56% of all branches           
+
+      19.889135751 seconds time elapsed
+
+      10.065340000 seconds user
+     131.761551000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:36:29] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 45, MAX_THREADS = 45, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:36:29] [Parent] Forked child process 30840
+[21:36:29] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:36:29] [Child] Process 30840 started
+[21:36:29] [Child] Created 45 threads, batch starting at 0
+[21:36:46] operation finished - 10000000
+
+task-clock: 146418123815 146418123815 146418123815
+context-switches: 10256142 146418123815 146418123815
+cpu-migrations: 1129 146418123815 146418123815
+page-faults: 256 146418123815 146418123815
+instructions: 97843873633 146418123815 146418123815
+cycles: 201105185888 146418123815 146418123815
+stalled-cycles-frontend: 8436418376 146418123815 146418123815
+stalled-cycles-backend: 65629897655 146418123815 146418123815
+branches: 24738828679 146418123815 146418123815
+branch-misses: 2855434378 146418123815 146418123815
+
+ Performance counter stats for './thread_load -b 45 -m 45 -d 10 -o 10000000 -t 1 -l 10':
+
+         146418.12 msec task-clock                       #    8.141 CPUs utilized             
+          10256142      context-switches                 #   70.047 K/sec                     
+              1129      cpu-migrations                   #    7.711 /sec                      
+               256      page-faults                      #    1.748 /sec                      
+       97843873633      instructions                     #    0.49  insn per cycle            
+                                                  #    0.67  stalled cycles per insn   
+      201105185888      cycles                           #    1.373 GHz                       
+        8436418376      stalled-cycles-frontend          #    4.20% frontend cycles idle      
+       65629897655      stalled-cycles-backend           #   32.63% backend cycles idle       
+       24738828679      branches                         #  168.960 M/sec                     
+        2855434378      branch-misses                    #   11.54% of all branches           
+
+      17.985828240 seconds time elapsed
+
+      10.032028000 seconds user
+     133.153148000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:36:52] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 50, MAX_THREADS = 50, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:36:52] [Parent] Forked child process 31577
+[21:36:52] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:36:52] [Child] Process 31577 started
+[21:36:52] [Child] Created 50 threads, batch starting at 0
+[21:37:07] operation finished - 10000000
+
+[21:37:07] operation finished - 10000000
+
+task-clock: 145689766506 145689766506 145689766506
+context-switches: 10326878 145689766506 145689766506
+cpu-migrations: 292 145689766506 145689766506
+page-faults: 275 145689766506 145689766506
+instructions: 98207006839 145689766506 145689766506
+cycles: 198187865798 145689766506 145689766506
+stalled-cycles-frontend: 9595271639 145689766506 145689766506
+stalled-cycles-backend: 63963568863 145689766506 145689766506
+branches: 24844146022 145689766506 145689766506
+branch-misses: 2871799442 145689766506 145689766506
+
+ Performance counter stats for './thread_load -b 50 -m 50 -d 10 -o 10000000 -t 1 -l 10':
+
+         145689.77 msec task-clock                       #    8.872 CPUs utilized             
+          10326878      context-switches                 #   70.883 K/sec                     
+               292      cpu-migrations                   #    2.004 /sec                      
+               275      page-faults                      #    1.888 /sec                      
+       98207006839      instructions                     #    0.50  insn per cycle            
+                                                  #    0.65  stalled cycles per insn   
+      198187865798      cycles                           #    1.360 GHz                       
+        9595271639      stalled-cycles-frontend          #    4.84% frontend cycles idle      
+       63963568863      stalled-cycles-backend           #   32.27% backend cycles idle       
+       24844146022      branches                         #  170.528 M/sec                     
+        2871799442      branch-misses                    #   11.56% of all branches           
+
+      16.420402602 seconds time elapsed
+
+      10.224290000 seconds user
+     132.332522000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:37:13] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 55, MAX_THREADS = 55, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:37:13] [Parent] Forked child process 32310
+[21:37:13] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:37:13] [Child] Process 32310 started
+[21:37:13] [Child] Created 55 threads, batch starting at 0
+[21:37:27] operation finished - 10000000
+
+task-clock: 150820573402 150820573402 150820573402
+context-switches: 10313056 150820573402 150820573402
+cpu-migrations: 520 150820573402 150820573402
+page-faults: 288 150820573402 150820573402
+instructions: 98846564987 150820573402 150820573402
+cycles: 207593111006 150820573402 150820573402
+stalled-cycles-frontend: 7143610798 150820573402 150820573402
+stalled-cycles-backend: 68199703757 150820573402 150820573402
+branches: 24998791495 150820573402 150820573402
+branch-misses: 2882395438 150820573402 150820573402
+
+ Performance counter stats for './thread_load -b 55 -m 55 -d 10 -o 10000000 -t 1 -l 10':
+
+         150820.57 msec task-clock                       #    9.938 CPUs utilized             
+          10313056      context-switches                 #   68.380 K/sec                     
+               520      cpu-migrations                   #    3.448 /sec                      
+               288      page-faults                      #    1.910 /sec                      
+       98846564987      instructions                     #    0.48  insn per cycle            
+                                                  #    0.69  stalled cycles per insn   
+      207593111006      cycles                           #    1.376 GHz                       
+        7143610798      stalled-cycles-frontend          #    3.44% frontend cycles idle      
+       68199703757      stalled-cycles-backend           #   32.85% backend cycles idle       
+       24998791495      branches                         #  165.752 M/sec                     
+        2882395438      branch-misses                    #   11.53% of all branches           
+
+      15.176320598 seconds time elapsed
+
+      10.524512000 seconds user
+     136.829336000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:37:33] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 60, MAX_THREADS = 60, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:37:33] [Parent] Forked child process 32955
+[21:37:33] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:37:33] [Child] Process 32955 started
+[21:37:33] [Child] Created 60 threads, batch starting at 0
+[21:37:47] operation finished - 10000000
+
+[21:37:47] operation finished - 10000000
+
+task-clock: 155975597817 155975597817 155975597817
+context-switches: 10389248 155975597817 155975597817
+cpu-migrations: 1155 155975597817 155975597817
+page-faults: 300 155975597817 155975597817
+instructions: 100209603305 155975597817 155975597817
+cycles: 219803312227 155975597817 155975597817
+stalled-cycles-frontend: 8979146420 155975597817 155975597817
+stalled-cycles-backend: 68741355065 155975597817 155975597817
+branches: 25333899110 155975597817 155975597817
+branch-misses: 2916446793 155975597817 155975597817
+
+ Performance counter stats for './thread_load -b 60 -m 60 -d 10 -o 10000000 -t 1 -l 10':
+
+         155975.60 msec task-clock                       #   11.031 CPUs utilized             
+          10389248      context-switches                 #   66.608 K/sec                     
+              1155      cpu-migrations                   #    7.405 /sec                      
+               300      page-faults                      #    1.923 /sec                      
+      100209603305      instructions                     #    0.46  insn per cycle            
+                                                  #    0.69  stalled cycles per insn   
+      219803312227      cycles                           #    1.409 GHz                       
+        8979146420      stalled-cycles-frontend          #    4.09% frontend cycles idle      
+       68741355065      stalled-cycles-backend           #   31.27% backend cycles idle       
+       25333899110      branches                         #  162.422 M/sec                     
+        2916446793      branch-misses                    #   11.51% of all branches           
+
+      14.139258604 seconds time elapsed
+
+      10.984526000 seconds user
+     141.615509000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:37:53] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 65, MAX_THREADS = 65, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:37:53] [Parent] Forked child process 33574
+[21:37:53] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:37:53] [Child] Process 33574 started
+[21:37:53] [Child] Created 65 threads, batch starting at 0
+[21:38:05] operation finished - 10000000
+
+task-clock: 164534191147 164534191147 164534191147
+context-switches: 10483312 164534191147 164534191147
+cpu-migrations: 546 164534191147 164534191147
+page-faults: 320 164534191147 164534191147
+instructions: 102440937993 164534191147 164534191147
+cycles: 236500442760 164534191147 164534191147
+stalled-cycles-frontend: 9149343481 164534191147 164534191147
+stalled-cycles-backend: 70488017316 164534191147 164534191147
+branches: 25887441562 164534191147 164534191147
+branch-misses: 2970772863 164534191147 164534191147
+
+ Performance counter stats for './thread_load -b 65 -m 65 -d 10 -o 10000000 -t 1 -l 10':
+
+         164534.19 msec task-clock                       #   12.348 CPUs utilized             
+          10483312      context-switches                 #   63.715 K/sec                     
+               546      cpu-migrations                   #    3.318 /sec                      
+               320      page-faults                      #    1.945 /sec                      
+      102440937993      instructions                     #    0.43  insn per cycle            
+                                                  #    0.69  stalled cycles per insn   
+      236500442760      cycles                           #    1.437 GHz                       
+        9149343481      stalled-cycles-frontend          #    3.87% frontend cycles idle      
+       70488017316      stalled-cycles-backend           #   29.80% backend cycles idle       
+       25887441562      branches                         #  157.338 M/sec                     
+        2970772863      branch-misses                    #   11.48% of all branches           
+
+      13.324834257 seconds time elapsed
+
+      11.607508000 seconds user
+     149.324962000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:38:11] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 70, MAX_THREADS = 70, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:38:11] [Parent] Forked child process 34172
+[21:38:11] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:38:11] [Child] Process 34172 started
+[21:38:11] [Child] Created 70 threads, batch starting at 0
+[21:38:23] operation finished - 10000000
+
+task-clock: 175728194593 175728194593 175728194593
+context-switches: 10589000 175728194593 175728194593
+cpu-migrations: 474 175728194593 175728194593
+page-faults: 334 175728194593 175728194593
+instructions: 105019962311 175728194593 175728194593
+cycles: 259469536374 175728194593 175728194593
+stalled-cycles-frontend: 9955529827 175728194593 175728194593
+stalled-cycles-backend: 75179956880 175728194593 175728194593
+branches: 26518567421 175728194593 175728194593
+branch-misses: 3026293954 175728194593 175728194593
+
+ Performance counter stats for './thread_load -b 70 -m 70 -d 10 -o 10000000 -t 1 -l 10':
+
+         175728.19 msec task-clock                       #   13.850 CPUs utilized             
+          10589000      context-switches                 #   60.258 K/sec                     
+               474      cpu-migrations                   #    2.697 /sec                      
+               334      page-faults                      #    1.901 /sec                      
+      105019962311      instructions                     #    0.40  insn per cycle            
+                                                  #    0.72  stalled cycles per insn   
+      259469536374      cycles                           #    1.477 GHz                       
+        9955529827      stalled-cycles-frontend          #    3.84% frontend cycles idle      
+       75179956880      stalled-cycles-backend           #   28.97% backend cycles idle       
+       26518567421      branches                         #  150.907 M/sec                     
+        3026293954      branch-misses                    #   11.41% of all branches           
+
+      12.688049300 seconds time elapsed
+
+      12.278958000 seconds user
+     159.723085000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:38:29] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 75, MAX_THREADS = 75, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:38:29] [Parent] Forked child process 34758
+[21:38:29] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:38:29] [Child] Process 34758 started
+[21:38:29] [Child] Created 75 threads, batch starting at 0
+[21:38:40] operation finished - 10000000
+
+[task-clock: 179894839514 179894839514 179894839514
+context-switches: 10787639 179894839514 179894839514
+cpu-migrations: 704 179894839514 179894839514
+page-faults: 350 179894839514 179894839514
+instructions: 107291708580 179894839514 179894839514
+cycles: 270235827190 179894839514 179894839514
+stalled-cycles-frontend: 8788812583 179894839514 179894839514
+stalled-cycles-backend: 76486776113 179894839514 179894839514
+branches: 27087005290 179894839514 179894839514
+branch-misses: 3089588142 179894839514 179894839514
+
+ Performance counter stats for './thread_load -b 75 -m 75 -d 10 -o 10000000 -t 1 -l 10':
+
+         179894.84 msec task-clock                       #   14.961 CPUs utilized             
+          10787639      context-switches                 #   59.966 K/sec                     
+               704      cpu-migrations                   #    3.913 /sec                      
+               350      page-faults                      #    1.946 /sec                      
+      107291708580      instructions                     #    0.40  insn per cycle            
+                                                  #    0.71  stalled cycles per insn   
+      270235827190      cycles                           #    1.502 GHz                       
+        8788812583      stalled-cycles-frontend          #    3.25% frontend cycles idle      
+       76486776113      stalled-cycles-backend           #   28.30% backend cycles idle       
+       27087005290      branches                         #  150.571 M/sec                     
+        3089588142      branch-misses                    #   11.41% of all branches           
+
+      12.024227668 seconds time elapsed
+
+      12.709863000 seconds user
+     163.685522000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:38:46] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 80, MAX_THREADS = 80, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:38:46] [Parent] Forked child process 35333
+[21:38:46] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:38:46] [Child] Process 35333 started
+[21:38:46] [Child] Created 80 threads, batch starting at 0
+[21:38:56] operation finished - 10000000
+
+[21:38:56] task-clock: 191840498133 191840498133 191840498133
+context-switches: 10985745 191840498133 191840498133
+cpu-migrations: 2386 191840498133 191840498133
+page-faults: 364 191840498133 191840498133
+instructions: 111011000346 191840498133 191840498133
+cycles: 296900592409 191840498133 191840498133
+stalled-cycles-frontend: 10582531218 191840498133 191840498133
+stalled-cycles-backend: 78946705091 191840498133 191840498133
+branches: 28017249306 191840498133 191840498133
+branch-misses: 3178767384 191840498133 191840498133
+
+ Performance counter stats for './thread_load -b 80 -m 80 -d 10 -o 10000000 -t 1 -l 10':
+
+         191840.50 msec task-clock                       #   16.622 CPUs utilized             
+          10985745      context-switches                 #   57.265 K/sec                     
+              2386      cpu-migrations                   #   12.437 /sec                      
+               364      page-faults                      #    1.897 /sec                      
+      111011000346      instructions                     #    0.37  insn per cycle            
+                                                  #    0.71  stalled cycles per insn   
+      296900592409      cycles                           #    1.548 GHz                       
+       10582531218      stalled-cycles-frontend          #    3.56% frontend cycles idle      
+       78946705091      stalled-cycles-backend           #   26.59% backend cycles idle       
+       28017249306      branches                         #  146.044 M/sec                     
+        3178767384      branch-misses                    #   11.35% of all branches           
+
+      11.541050343 seconds time elapsed
+
+      13.557899000 seconds user
+     174.673403000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:39:02] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 85, MAX_THREADS = 85, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:39:02] [Parent] Forked child process 35959
+[21:39:02] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:39:02] [Child] Process 35959 started
+[21:39:02] [Child] Created 85 threads, batch starting at 0
+[21:39:13] operation finished - 10000000
+
+[21:39:13] operation finished - 10000000
+
+task-clock: 219661002445 219661002445 219661002445
+context-switches: 11108231 219661002445 219661002445
+cpu-migrations: 1678 219661002445 219661002445
+page-faults: 384 219661002445 219661002445
+instructions: 115758630016 219661002445 219661002445
+cycles: 353767649951 219661002445 219661002445
+stalled-cycles-frontend: 10840348275 219661002445 219661002445
+stalled-cycles-backend: 87885457320 219661002445 219661002445
+branches: 29170668774 219661002445 219661002445
+branch-misses: 3259107288 219661002445 219661002445
+
+ Performance counter stats for './thread_load -b 85 -m 85 -d 10 -o 10000000 -t 1 -l 10':
+
+         219661.00 msec task-clock                       #   19.432 CPUs utilized             
+          11108231      context-switches                 #   50.570 K/sec                     
+              1678      cpu-migrations                   #    7.639 /sec                      
+               384      page-faults                      #    1.748 /sec                      
+      115758630016      instructions                     #    0.33  insn per cycle            
+                                                  #    0.76  stalled cycles per insn   
+      353767649951      cycles                           #    1.611 GHz                       
+       10840348275      stalled-cycles-frontend          #    3.06% frontend cycles idle      
+       87885457320      stalled-cycles-backend           #   24.84% backend cycles idle       
+       29170668774      branches                         #  132.799 M/sec                     
+        3259107288      branch-misses                    #   11.17% of all branches           
+
+      11.304055725 seconds time elapsed
+
+      14.880803000 seconds user
+     200.784407000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:39:19] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 90, MAX_THREADS = 90, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:39:19] [Parent] Forked child process 36505
+[21:39:19] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:39:19] [Child] Process 36505 started
+[21:39:19] [Child] Created 90 threads, batch starting at 0
+[21:39:28] operation finished - 10000000
+
+task-clock: 216498449890 216498449890 216498449890
+context-switches: 11475177 216498449890 216498449890
+cpu-migrations: 3435 216498449890 216498449890
+page-faults: 395 216498449890 216498449890
+instructions: 118989498993 216498449890 216498449890
+cycles: 352262123624 216498449890 216498449890
+stalled-cycles-frontend: 12189868323 216498449890 216498449890
+stalled-cycles-backend: 85330299294 216498449890 216498449890
+branches: 29992925478 216498449890 216498449890
+branch-misses: 3376474398 216498449890 216498449890
+
+ Performance counter stats for './thread_load -b 90 -m 90 -d 10 -o 10000000 -t 1 -l 10':
+
+         216498.45 msec task-clock                       #   20.159 CPUs utilized             
+          11475177      context-switches                 #   53.004 K/sec                     
+              3435      cpu-migrations                   #   15.866 /sec                      
+               395      page-faults                      #    1.824 /sec                      
+      118989498993      instructions                     #    0.34  insn per cycle            
+                                                  #    0.72  stalled cycles per insn   
+      352262123624      cycles                           #    1.627 GHz                       
+       12189868323      stalled-cycles-frontend          #    3.46% frontend cycles idle      
+       85330299294      stalled-cycles-backend           #   24.22% backend cycles idle       
+       29992925478      branches                         #  138.536 M/sec                     
+        3376474398      branch-misses                    #   11.26% of all branches           
+
+      10.739672275 seconds time elapsed
+
+      15.237039000 seconds user
+     197.573028000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:39:34] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 95, MAX_THREADS = 95, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:39:34] [Parent] Forked child process 37053
+[21:39:34] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:39:34] [Child] Process 37053 started
+[21:39:34] [Child] Created 95 threads, batch starting at 0
+[21:39:44] operation finished - 10000000
+
+[task-clock: 238712508395 238712508395 238712508395
+context-switches: 11812573 238712508395 238712508395
+cpu-migrations: 7328 238712508395 238712508395
+page-faults: 412 238712508395 238712508395
+instructions: 124859953955 238712508395 238712508395
+cycles: 400744673227 238712508395 238712508395
+stalled-cycles-frontend: 12479006954 238712508395 238712508395
+stalled-cycles-backend: 91287304538 238712508395 238712508395
+branches: 31433841954 238712508395 238712508395
+branch-misses: 3499597670 238712508395 238712508395
+
+ Performance counter stats for './thread_load -b 95 -m 95 -d 10 -o 10000000 -t 1 -l 10':
+
+         238712.51 msec task-clock                       #   22.635 CPUs utilized             
+          11812573      context-switches                 #   49.485 K/sec                     
+              7328      cpu-migrations                   #   30.698 /sec                      
+               412      page-faults                      #    1.726 /sec                      
+      124859953955      instructions                     #    0.31  insn per cycle            
+                                                  #    0.73  stalled cycles per insn   
+      400744673227      cycles                           #    1.679 GHz                       
+       12479006954      stalled-cycles-frontend          #    3.11% frontend cycles idle      
+       91287304538      stalled-cycles-backend           #   22.78% backend cycles idle       
+       31433841954      branches                         #  131.681 M/sec                     
+        3499597670      branch-misses                    #   11.13% of all branches           
+
+      10.546171687 seconds time elapsed
+
+      16.139294000 seconds user
+     218.449610000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[21:39:50] [Parent] Using THREAD_BATCH_INTERVAL_SEC = 30, THREAD_BATCH = 100, MAX_THREADS = 100, THREADS_PER_MUTEX = 1, LOOP_COUNT = 10, THREAD_SLEEP_US = 10, OPERATIONS = 10000000
+[21:39:50] [Parent] Forked child process 37537
+[21:39:50] [Parent] All processes and threads launched. Parent entering infinite wait mode.
+[21:39:50] [Child] Process 37537 started
+[21:39:50] [Child] Created 100 threads, batch starting at 0
+[21:40:00] operation finished - 10000000
+
+[21:40:00] operation finished - 10000000
+
+[21:40:00] operation finished - 10000000
+
+task-clock: 301217756654 301217756654 301217756654
+context-switches: 11750188 301217756654 301217756654
+cpu-migrations: 27747 301217756654 301217756654
+page-faults: 423 301217756654 301217756654
+instructions: 137950667102 301217756654 301217756654
+cycles: 540618442548 301217756654 301217756654
+stalled-cycles-frontend: 13676402241 301217756654 301217756654
+stalled-cycles-backend: 101518656831 301217756654 301217756654
+branches: 34516512608 301217756654 301217756654
+branch-misses: 3653962872 301217756654 301217756654
+
+ Performance counter stats for './thread_load -b 100 -m 100 -d 10 -o 10000000 -t 1 -l 10':
+
+         301217.76 msec task-clock                       #   28.216 CPUs utilized             
+          11750188      context-switches                 #   39.009 K/sec                     
+             27747      cpu-migrations                   #   92.116 /sec                      
+               423      page-faults                      #    1.404 /sec                      
+      137950667102      instructions                     #    0.26  insn per cycle            
+                                                  #    0.74  stalled cycles per insn   
+      540618442548      cycles                           #    1.795 GHz                       
+       13676402241      stalled-cycles-frontend          #    2.53% frontend cycles idle      
+      101518656831      stalled-cycles-backend           #   18.78% backend cycles idle       
+       34516512608      branches                         #  114.590 M/sec                     
+        3653962872      branch-misses                    #   10.59% of all branches           
+
+      10.675319560 seconds time elapsed
+
+      17.409083000 seconds user
+     276.013524000 seconds sys
+
