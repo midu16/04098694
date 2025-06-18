@@ -1,0 +1,51 @@
+apiVersion: performance.openshift.io/v2
+kind: PerformanceProfile
+metadata:
+  name: thread-test-worker-profile
+  annotations:
+    kubeletconfig.experimental: |
+      {"systemReserved": {"memory": "8Gi"}, "topologyManagerScope": "pod"}}
+spec:
+  cpu:
+    isolated: "4-95,196-287,100-191,292-383"    # Isolate bulk of cores across both NUMA nodes
+    reserved: "0-3,96-99,192-195,288-291"       # Reserve some cores from each NUMA node
+  hugepages:
+    defaultHugepagesSize: "1G"
+    pages:
+      - count: 32
+        size: "1G"
+        node: 0
+  nodeSelector:
+    node-role.kubernetes.io/worker-rt: ""    # Select worker nodes only
+  numa:
+    topologyPolicy: restricted #none
+  realTimeKernel:
+    enabled: false
+  workloadHints: # https://github.com/openshift-kni/telco-reference/blob/b162404141968de83ec165548f751b8318963e5a/telco-core/configuration/reference-crs/required/performance/PerformanceProfile.yaml#L37
+    highPowerConsumption: false
+    realTime: false
+    perPodPowerManagement: true
+  globallyDisableIrqLoadBalancing: false
+  additionalKernelArgs:
+    - "nohz_full=4-95,196-287,100-191,292-383"
+---
+apiVersion: tuned.openshift.io/v1
+kind: Tuned
+metadata:
+  name: openshift-custom-tuned
+  namespace: openshift-cluster-node-tuning-operator
+spec:
+  profile:
+  - data: |
+      [main]
+      summary=Custom OpenShift node tuned profile to add a kernel parameter
+      include=openshift-node-performance-thread-test-worker-profile
+      [bootloader]
+      cmdline_removeIntelArgs=-intel_iommu=on intel_pstate=passive
+      cmdline_pstate=amd_pstate=active
+    name: openshift-custom-tuned
+  recommend:
+  - machineConfigLabels:
+      machineconfiguration.openshift.io/role: worker
+    priority: 20
+    profile: openshift-custom-tuned

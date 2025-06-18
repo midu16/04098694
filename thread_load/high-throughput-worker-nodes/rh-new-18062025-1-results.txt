@@ -1,0 +1,739 @@
+[root@cnfdc12-installer midu]# oc logs -n thread-test thread-test-5d585798b-jx4sg -f
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:47:36] [Config] THREAD_BATCH=5, MAX_THREADS=5, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:47:36] [Parent] Forked child PID 272645
+[11:47:36] [Child] PID 272645 started
+pthread_create failed: Success
+task-clock: 1665090 1665090 1665090
+context-switches: 3 1665090 1665090
+cpu-migrations: 0 1665090 1665090
+page-faults: 121 1665090 1665090
+instructions: 2018197 1665090 1665090
+cycles: 3804924 1665090 1665090
+stalled-cycles-frontend: 401657 1665090 1665090
+stalled-cycles-backend: 150999 1665090 1665090
+branches: 508021 1665090 1665090
+branch-misses: 63934 1665090 1665090
+
+ Performance counter stats for './thread_load -b 5 -m 5 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.67 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.802 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               121      page-faults                      #   72.669 K/sec                     
+           2018197      instructions                     #    0.53  insn per cycle            
+                                                  #    0.20  stalled cycles per insn   
+           3804924      cycles                           #    2.285 GHz                       
+            401657      stalled-cycles-frontend          #   10.56% frontend cycles idle      
+            150999      stalled-cycles-backend           #    3.97% backend cycles idle       
+            508021      branches                         #  305.101 M/sec                     
+             63934      branch-misses                    #   12.58% of all branches           
+
+       1.002237182 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002259000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:47:42] [Config] THREAD_BATCH=10, MAX_THREADS=10, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:47:42] [Parent] Forked child PID 273053
+[11:47:42] [Child] PID 273053 started
+pthread_create failed: Success
+task-clock: 1663800 1663800 1663800
+context-switches: 3 1663800 1663800
+cpu-migrations: 0 1663800 1663800
+page-faults: 118 1663800 1663800
+instructions: 1950173 1663800 1663800
+cycles: 3804266 1663800 1663800
+stalled-cycles-frontend: 417585 1663800 1663800
+stalled-cycles-backend: 333953 1663800 1663800
+branches: 488650 1663800 1663800
+branch-misses: 61317 1663800 1663800
+
+ Performance counter stats for './thread_load -b 10 -m 10 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.66 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.803 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               118      page-faults                      #   70.922 K/sec                     
+           1950173      instructions                     #    0.51  insn per cycle            
+                                                  #    0.21  stalled cycles per insn   
+           3804266      cycles                           #    2.286 GHz                       
+            417585      stalled-cycles-frontend          #   10.98% frontend cycles idle      
+            333953      stalled-cycles-backend           #    8.78% backend cycles idle       
+            488650      branches                         #  293.695 M/sec                     
+             61317      branch-misses                    #   12.55% of all branches           
+
+       1.002229392 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002317000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:47:48] [Config] THREAD_BATCH=15, MAX_THREADS=15, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:47:48] [Parent] Forked child PID 273532
+[11:47:48] [Child] PID 273532 started
+pthread_create failed: Success
+task-clock: 1738790 1738790 1738790
+context-switches: 3 1738790 1738790
+cpu-migrations: 0 1738790 1738790
+page-faults: 123 1738790 1738790
+instructions: 2081259 1738790 1738790
+cycles: 3980741 1738790 1738790
+stalled-cycles-frontend: 800090 1738790 1738790
+stalled-cycles-backend: 107788 1738790 1738790
+branches: 519554 1738790 1738790
+branch-misses: 65114 1738790 1738790
+
+ Performance counter stats for './thread_load -b 15 -m 15 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.74 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.725 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               123      page-faults                      #   70.739 K/sec                     
+           2081259      instructions                     #    0.52  insn per cycle            
+                                                  #    0.38  stalled cycles per insn   
+           3980741      cycles                           #    2.289 GHz                       
+            800090      stalled-cycles-frontend          #   20.10% frontend cycles idle      
+            107788      stalled-cycles-backend           #    2.71% backend cycles idle       
+            519554      branches                         #  298.802 M/sec                     
+             65114      branch-misses                    #   12.53% of all branches           
+
+       1.002318613 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002374000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:47:54] [Config] THREAD_BATCH=20, MAX_THREADS=20, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:47:54] [Parent] Forked child PID 273742
+[11:47:54] [Child] PID 273742 started
+pthread_create failed: Success
+task-clock: 1632600 1632600 1632600
+context-switches: 3 1632600 1632600
+cpu-migrations: 0 1632600 1632600
+page-faults: 120 1632600 1632600
+instructions: 1991880 1632600 1632600
+cycles: 3733369 1632600 1632600
+stalled-cycles-frontend: 747277 1632600 1632600
+stalled-cycles-backend: 76074 1632600 1632600
+branches: 496879 1632600 1632600
+branch-misses: 61026 1632600 1632600
+
+ Performance counter stats for './thread_load -b 20 -m 20 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.63 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.838 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               120      page-faults                      #   73.502 K/sec                     
+           1991880      instructions                     #    0.53  insn per cycle            
+                                                  #    0.38  stalled cycles per insn   
+           3733369      cycles                           #    2.287 GHz                       
+            747277      stalled-cycles-frontend          #   20.02% frontend cycles idle      
+             76074      stalled-cycles-backend           #    2.04% backend cycles idle       
+            496879      branches                         #  304.348 M/sec                     
+             61026      branch-misses                    #   12.28% of all branches           
+
+       1.002255772 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002397000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:00] [Config] THREAD_BATCH=25, MAX_THREADS=25, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:00] [Parent] Forked child PID 273913
+[11:48:00] [Child] PID 273913 started
+pthread_create failed: Success
+task-clock: 1749590 1749590 1749590
+context-switches: 3 1749590 1749590
+cpu-migrations: 0 1749590 1749590
+page-faults: 120 1749590 1749590
+instructions: 2001021 1749590 1749590
+cycles: 4006212 1749590 1749590
+stalled-cycles-frontend: 631360 1749590 1749590
+stalled-cycles-backend: 332722 1749590 1749590
+branches: 500861 1749590 1749590
+branch-misses: 62169 1749590 1749590
+
+ Performance counter stats for './thread_load -b 25 -m 25 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.75 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.715 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               120      page-faults                      #   68.587 K/sec                     
+           2001021      instructions                     #    0.50  insn per cycle            
+                                                  #    0.32  stalled cycles per insn   
+           4006212      cycles                           #    2.290 GHz                       
+            631360      stalled-cycles-frontend          #   15.76% frontend cycles idle      
+            332722      stalled-cycles-backend           #    8.31% backend cycles idle       
+            500861      branches                         #  286.273 M/sec                     
+             62169      branch-misses                    #   12.41% of all branches           
+
+       1.002344283 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002386000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:06] [Config] THREAD_BATCH=30, MAX_THREADS=30, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:06] [Parent] Forked child PID 274080
+[11:48:06] [Child] PID 274080 started
+pthread_create failed: Success
+task-clock: 1705450 1705450 1705450
+context-switches: 3 1705450 1705450
+cpu-migrations: 0 1705450 1705450
+page-faults: 121 1705450 1705450
+instructions: 2037170 1705450 1705450
+cycles: 3905928 1705450 1705450
+stalled-cycles-frontend: 676171 1705450 1705450
+stalled-cycles-backend: 71744 1705450 1705450
+branches: 508467 1705450 1705450
+branch-misses: 63009 1705450 1705450
+
+ Performance counter stats for './thread_load -b 30 -m 30 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.71 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.759 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               121      page-faults                      #   70.949 K/sec                     
+           2037170      instructions                     #    0.52  insn per cycle            
+                                                  #    0.33  stalled cycles per insn   
+           3905928      cycles                           #    2.290 GHz                       
+            676171      stalled-cycles-frontend          #   17.31% frontend cycles idle      
+             71744      stalled-cycles-backend           #    1.84% backend cycles idle       
+            508467      branches                         #  298.142 M/sec                     
+             63009      branch-misses                    #   12.39% of all branches           
+
+       1.002321262 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002329000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:12] [Config] THREAD_BATCH=35, MAX_THREADS=35, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:12] [Parent] Forked child PID 274267
+[11:48:12] [Child] PID 274267 started
+pthread_create failed: Success
+task-clock: 1736400 1736400 1736400
+context-switches: 3 1736400 1736400
+cpu-migrations: 0 1736400 1736400
+page-faults: 114 1736400 1736400
+instructions: 2015746 1736400 1736400
+cycles: 3980284 1736400 1736400
+stalled-cycles-frontend: 111406 1736400 1736400
+stalled-cycles-backend: 600805 1736400 1736400
+branches: 500516 1736400 1736400
+branch-misses: 63261 1736400 1736400
+
+ Performance counter stats for './thread_load -b 35 -m 35 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.74 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.728 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               114      page-faults                      #   65.653 K/sec                     
+           2015746      instructions                     #    0.51  insn per cycle            
+                                                  #    0.30  stalled cycles per insn   
+           3980284      cycles                           #    2.292 GHz                       
+            111406      stalled-cycles-frontend          #    2.80% frontend cycles idle      
+            600805      stalled-cycles-backend           #   15.09% backend cycles idle       
+            500516      branches                         #  288.249 M/sec                     
+             63261      branch-misses                    #   12.64% of all branches           
+
+       1.002403113 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002395000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:18] [Config] THREAD_BATCH=40, MAX_THREADS=40, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:18] [Parent] Forked child PID 274388
+[11:48:18] [Child] PID 274388 started
+pthread_create failed: Success
+task-clock: 1673740 1673740 1673740
+context-switches: 3 1673740 1673740
+cpu-migrations: 0 1673740 1673740
+page-faults: 120 1673740 1673740
+instructions: 2048479 1673740 1673740
+cycles: 3836618 1673740 1673740
+stalled-cycles-frontend: 407851 1673740 1673740
+stalled-cycles-backend: 262215 1673740 1673740
+branches: 511436 1673740 1673740
+branch-misses: 63382 1673740 1673740
+
+ Performance counter stats for './thread_load -b 40 -m 40 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.67 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.792 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               120      page-faults                      #   71.696 K/sec                     
+           2048479      instructions                     #    0.53  insn per cycle            
+                                                  #    0.20  stalled cycles per insn   
+           3836618      cycles                           #    2.292 GHz                       
+            407851      stalled-cycles-frontend          #   10.63% frontend cycles idle      
+            262215      stalled-cycles-backend           #    6.83% backend cycles idle       
+            511436      branches                         #  305.565 M/sec                     
+             63382      branch-misses                    #   12.39% of all branches           
+
+       1.002246142 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002349000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:24] [Config] THREAD_BATCH=45, MAX_THREADS=45, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:24] [Parent] Forked child PID 274599
+[11:48:24] [Child] PID 274599 started
+pthread_create failed: Success
+task-clock: 1727340 1727340 1727340
+context-switches: 3 1727340 1727340
+cpu-migrations: 0 1727340 1727340
+page-faults: 119 1727340 1727340
+instructions: 2057560 1727340 1727340
+cycles: 3961968 1727340 1727340
+stalled-cycles-frontend: 118568 1727340 1727340
+stalled-cycles-backend: 674771 1727340 1727340
+branches: 513137 1727340 1727340
+branch-misses: 62804 1727340 1727340
+
+ Performance counter stats for './thread_load -b 45 -m 45 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.73 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.737 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               119      page-faults                      #   68.892 K/sec                     
+           2057560      instructions                     #    0.52  insn per cycle            
+                                                  #    0.33  stalled cycles per insn   
+           3961968      cycles                           #    2.294 GHz                       
+            118568      stalled-cycles-frontend          #    2.99% frontend cycles idle      
+            674771      stalled-cycles-backend           #   17.03% backend cycles idle       
+            513137      branches                         #  297.068 M/sec                     
+             62804      branch-misses                    #   12.24% of all branches           
+
+       1.002291482 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002287000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:31] [Config] THREAD_BATCH=50, MAX_THREADS=50, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:31] [Parent] Forked child PID 274765
+[11:48:31] [Child] PID 274765 started
+pthread_create failed: Success
+task-clock: 1612420 1612420 1612420
+context-switches: 3 1612420 1612420
+cpu-migrations: 0 1612420 1612420
+page-faults: 118 1612420 1612420
+instructions: 2033456 1612420 1612420
+cycles: 3685444 1612420 1612420
+stalled-cycles-frontend: 352088 1612420 1612420
+stalled-cycles-backend: 265934 1612420 1612420
+branches: 508080 1612420 1612420
+branch-misses: 62211 1612420 1612420
+
+ Performance counter stats for './thread_load -b 50 -m 50 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.61 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.861 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               118      page-faults                      #   73.182 K/sec                     
+           2033456      instructions                     #    0.55  insn per cycle            
+                                                  #    0.17  stalled cycles per insn   
+           3685444      cycles                           #    2.286 GHz                       
+            352088      stalled-cycles-frontend          #    9.55% frontend cycles idle      
+            265934      stalled-cycles-backend           #    7.22% backend cycles idle       
+            508080      branches                         #  315.104 M/sec                     
+             62211      branch-misses                    #   12.24% of all branches           
+
+       1.002222531 seconds time elapsed
+
+       0.000763000 seconds user
+       0.001488000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:37] [Config] THREAD_BATCH=55, MAX_THREADS=55, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:37] [Parent] Forked child PID 274913
+[11:48:37] [Child] PID 274913 started
+pthread_create failed: Success
+task-clock: 1659340 1659340 1659340
+context-switches: 3 1659340 1659340
+cpu-migrations: 0 1659340 1659340
+page-faults: 119 1659340 1659340
+instructions: 2064459 1659340 1659340
+cycles: 3799134 1659340 1659340
+stalled-cycles-frontend: 343886 1659340 1659340
+stalled-cycles-backend: 283693 1659340 1659340
+branches: 514510 1659340 1659340
+branch-misses: 63145 1659340 1659340
+
+ Performance counter stats for './thread_load -b 55 -m 55 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.66 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.808 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               119      page-faults                      #   71.715 K/sec                     
+           2064459      instructions                     #    0.54  insn per cycle            
+                                                  #    0.17  stalled cycles per insn   
+           3799134      cycles                           #    2.290 GHz                       
+            343886      stalled-cycles-frontend          #    9.05% frontend cycles idle      
+            283693      stalled-cycles-backend           #    7.47% backend cycles idle       
+            514510      branches                         #  310.069 M/sec                     
+             63145      branch-misses                    #   12.27% of all branches           
+
+       1.002351292 seconds time elapsed
+
+       0.000548000 seconds user
+       0.001941000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:43] [Config] THREAD_BATCH=60, MAX_THREADS=60, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:43] [Parent] Forked child PID 275107
+[11:48:43] [Child] PID 275107 started
+pthread_create failed: Success
+task-clock: 1664440 1664440 1664440
+context-switches: 3 1664440 1664440
+cpu-migrations: 0 1664440 1664440
+page-faults: 121 1664440 1664440
+instructions: 2060028 1664440 1664440
+cycles: 3811263 1664440 1664440
+stalled-cycles-frontend: 351139 1664440 1664440
+stalled-cycles-backend: 334799 1664440 1664440
+branches: 514893 1664440 1664440
+branch-misses: 62900 1664440 1664440
+
+ Performance counter stats for './thread_load -b 60 -m 60 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.66 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.802 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               121      page-faults                      #   72.697 K/sec                     
+           2060028      instructions                     #    0.54  insn per cycle            
+                                                  #    0.17  stalled cycles per insn   
+           3811263      cycles                           #    2.290 GHz                       
+            351139      stalled-cycles-frontend          #    9.21% frontend cycles idle      
+            334799      stalled-cycles-backend           #    8.78% backend cycles idle       
+            514893      branches                         #  309.349 M/sec                     
+             62900      branch-misses                    #   12.22% of all branches           
+
+       1.002256883 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002422000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:49] [Config] THREAD_BATCH=65, MAX_THREADS=65, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:49] [Parent] Forked child PID 275216
+[11:48:49] [Child] PID 275216 started
+pthread_create failed: Success
+task-clock: 1644770 1644770 1644770
+context-switches: 3 1644770 1644770
+cpu-migrations: 0 1644770 1644770
+page-faults: 120 1644770 1644770
+instructions: 2043933 1644770 1644770
+cycles: 3766670 1644770 1644770
+stalled-cycles-frontend: 341072 1644770 1644770
+stalled-cycles-backend: 362274 1644770 1644770
+branches: 510716 1644770 1644770
+branch-misses: 61696 1644770 1644770
+
+ Performance counter stats for './thread_load -b 65 -m 65 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.64 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.824 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               120      page-faults                      #   72.959 K/sec                     
+           2043933      instructions                     #    0.54  insn per cycle            
+                                                  #    0.18  stalled cycles per insn   
+           3766670      cycles                           #    2.290 GHz                       
+            341072      stalled-cycles-frontend          #    9.06% frontend cycles idle      
+            362274      stalled-cycles-backend           #    9.62% backend cycles idle       
+            510716      branches                         #  310.509 M/sec                     
+             61696      branch-misses                    #   12.08% of all branches           
+
+       1.002244952 seconds time elapsed
+
+       0.000790000 seconds user
+       0.001517000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:48:55] [Config] THREAD_BATCH=70, MAX_THREADS=70, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:48:55] [Parent] Forked child PID 275424
+[11:48:55] [Child] PID 275424 started
+pthread_create failed: Success
+task-clock: 1756750 1756750 1756750
+context-switches: 3 1756750 1756750
+cpu-migrations: 0 1756750 1756750
+page-faults: 116 1756750 1756750
+instructions: 2029247 1756750 1756750
+cycles: 4031662 1756750 1756750
+stalled-cycles-frontend: 101724 1756750 1756750
+stalled-cycles-backend: 635627 1756750 1756750
+branches: 504991 1756750 1756750
+branch-misses: 62531 1756750 1756750
+
+ Performance counter stats for './thread_load -b 70 -m 70 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.76 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.708 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               116      page-faults                      #   66.031 K/sec                     
+           2029247      instructions                     #    0.50  insn per cycle            
+                                                  #    0.31  stalled cycles per insn   
+           4031662      cycles                           #    2.295 GHz                       
+            101724      stalled-cycles-frontend          #    2.52% frontend cycles idle      
+            635627      stalled-cycles-backend           #   15.77% backend cycles idle       
+            504991      branches                         #  287.458 M/sec                     
+             62531      branch-misses                    #   12.38% of all branches           
+
+       1.002405203 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002418000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:49:01] [Config] THREAD_BATCH=75, MAX_THREADS=75, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:49:01] [Parent] Forked child PID 275595
+[11:49:01] [Child] PID 275595 started
+pthread_create failed: Success
+task-clock: 1691920 1691920 1691920
+context-switches: 3 1691920 1691920
+cpu-migrations: 0 1691920 1691920
+page-faults: 123 1691920 1691920
+instructions: 1978873 1691920 1691920
+cycles: 3870185 1691920 1691920
+stalled-cycles-frontend: 72881 1691920 1691920
+stalled-cycles-backend: 615154 1691920 1691920
+branches: 495068 1691920 1691920
+branch-misses: 59659 1691920 1691920
+
+ Performance counter stats for './thread_load -b 75 -m 75 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.69 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.773 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               123      page-faults                      #   72.698 K/sec                     
+           1978873      instructions                     #    0.51  insn per cycle            
+                                                  #    0.31  stalled cycles per insn   
+           3870185      cycles                           #    2.287 GHz                       
+             72881      stalled-cycles-frontend          #    1.88% frontend cycles idle      
+            615154      stalled-cycles-backend           #   15.89% backend cycles idle       
+            495068      branches                         #  292.607 M/sec                     
+             59659      branch-misses                    #   12.05% of all branches           
+
+       1.002275662 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002345000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:49:07] [Config] THREAD_BATCH=80, MAX_THREADS=80, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:49:07] [Parent] Forked child PID 275776
+[11:49:07] [Child] PID 275776 started
+pthread_create failed: Success
+task-clock: 1630500 1630500 1630500
+context-switches: 3 1630500 1630500
+cpu-migrations: 0 1630500 1630500
+page-faults: 121 1630500 1630500
+instructions: 2044299 1630500 1630500
+cycles: 3725868 1630500 1630500
+stalled-cycles-frontend: 318765 1630500 1630500
+stalled-cycles-backend: 326553 1630500 1630500
+branches: 510265 1630500 1630500
+branch-misses: 61437 1630500 1630500
+
+ Performance counter stats for './thread_load -b 80 -m 80 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.63 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.840 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               121      page-faults                      #   74.210 K/sec                     
+           2044299      instructions                     #    0.55  insn per cycle            
+                                                  #    0.16  stalled cycles per insn   
+           3725868      cycles                           #    2.285 GHz                       
+            318765      stalled-cycles-frontend          #    8.56% frontend cycles idle      
+            326553      stalled-cycles-backend           #    8.76% backend cycles idle       
+            510265      branches                         #  312.950 M/sec                     
+             61437      branch-misses                    #   12.04% of all branches           
+
+       1.002301472 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002389000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:49:13] [Config] THREAD_BATCH=85, MAX_THREADS=85, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:49:13] [Parent] Forked child PID 275947
+[11:49:13] [Child] PID 275947 started
+pthread_create failed: Success
+task-clock: 1704390 1704390 1704390
+context-switches: 3 1704390 1704390
+cpu-migrations: 0 1704390 1704390
+page-faults: 125 1704390 1704390
+instructions: 2109851 1704390 1704390
+cycles: 3906824 1704390 1704390
+stalled-cycles-frontend: 141991 1704390 1704390
+stalled-cycles-backend: 561163 1704390 1704390
+branches: 525603 1704390 1704390
+branch-misses: 64159 1704390 1704390
+
+ Performance counter stats for './thread_load -b 85 -m 85 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.70 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.760 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               125      page-faults                      #   73.340 K/sec                     
+           2109851      instructions                     #    0.54  insn per cycle            
+                                                  #    0.27  stalled cycles per insn   
+           3906824      cycles                           #    2.292 GHz                       
+            141991      stalled-cycles-frontend          #    3.63% frontend cycles idle      
+            561163      stalled-cycles-backend           #   14.36% backend cycles idle       
+            525603      branches                         #  308.382 M/sec                     
+             64159      branch-misses                    #   12.21% of all branches           
+
+       1.002302662 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002305000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:49:19] [Config] THREAD_BATCH=90, MAX_THREADS=90, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:49:19] [Parent] Forked child PID 276094
+[11:49:19] [Child] PID 276094 started
+pthread_create failed: Success
+task-clock: 1646050 1646050 1646050
+context-switches: 3 1646050 1646050
+cpu-migrations: 0 1646050 1646050
+page-faults: 122 1646050 1646050
+instructions: 2004752 1646050 1646050
+cycles: 3765984 1646050 1646050
+stalled-cycles-frontend: 107095 1646050 1646050
+stalled-cycles-backend: 694953 1646050 1646050
+branches: 500824 1646050 1646050
+branch-misses: 61056 1646050 1646050
+
+ Performance counter stats for './thread_load -b 90 -m 90 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.65 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.823 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               122      page-faults                      #   74.117 K/sec                     
+           2004752      instructions                     #    0.53  insn per cycle            
+                                                  #    0.35  stalled cycles per insn   
+           3765984      cycles                           #    2.288 GHz                       
+            107095      stalled-cycles-frontend          #    2.84% frontend cycles idle      
+            694953      stalled-cycles-backend           #   18.45% backend cycles idle       
+            500824      branches                         #  304.258 M/sec                     
+             61056      branch-misses                    #   12.19% of all branches           
+
+       1.002330093 seconds time elapsed
+
+       0.000783000 seconds user
+       0.001571000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:49:25] [Config] THREAD_BATCH=95, MAX_THREADS=95, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:49:25] [Parent] Forked child PID 276282
+[11:49:25] [Child] PID 276282 started
+pthread_create failed: Success
+task-clock: 1704910 1704910 1704910
+context-switches: 3 1704910 1704910
+cpu-migrations: 0 1704910 1704910
+page-faults: 124 1704910 1704910
+instructions: 2023396 1704910 1704910
+cycles: 3908490 1704910 1704910
+stalled-cycles-frontend: 115952 1704910 1704910
+stalled-cycles-backend: 857678 1704910 1704910
+branches: 507298 1704910 1704910
+branch-misses: 61402 1704910 1704910
+
+ Performance counter stats for './thread_load -b 95 -m 95 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.70 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.760 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               124      page-faults                      #   72.731 K/sec                     
+           2023396      instructions                     #    0.52  insn per cycle            
+                                                  #    0.42  stalled cycles per insn   
+           3908490      cycles                           #    2.292 GHz                       
+            115952      stalled-cycles-frontend          #    2.97% frontend cycles idle      
+            857678      stalled-cycles-backend           #   21.94% backend cycles idle       
+            507298      branches                         #  297.551 M/sec                     
+             61402      branch-misses                    #   12.10% of all branches           
+
+       1.002288233 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002304000 seconds sys
+
+
+Using CPUID AuthenticAMD-25-11-1
+Control descriptor is not initialized
+[11:49:31] [Config] THREAD_BATCH=100, MAX_THREADS=100, THREADS_PER_MUTEX=1, LOOP_COUNT=10, THREAD_SLEEP_US=10, OPERATIONS=10000000, SINGLE_PROCESS=0
+[11:49:31] [Parent] Forked child PID 276447
+[11:49:31] [Child] PID 276447 started
+pthread_create failed: Success
+task-clock: 1684640 1684640 1684640
+context-switches: 3 1684640 1684640
+cpu-migrations: 0 1684640 1684640
+page-faults: 120 1684640 1684640
+instructions: 1992709 1684640 1684640
+cycles: 3861735 1684640 1684640
+stalled-cycles-frontend: 118279 1684640 1684640
+stalled-cycles-backend: 790761 1684640 1684640
+branches: 498434 1684640 1684640
+branch-misses: 60703 1684640 1684640
+
+ Performance counter stats for './thread_load -b 100 -m 100 -d 10 -o 10000000 -t 1 -l 10':
+
+              1.68 msec task-clock                       #    0.002 CPUs utilized             
+                 3      context-switches                 #    1.781 K/sec                     
+                 0      cpu-migrations                   #    0.000 /sec                      
+               120      page-faults                      #   71.232 K/sec                     
+           1992709      instructions                     #    0.52  insn per cycle            
+                                                  #    0.40  stalled cycles per insn   
+           3861735      cycles                           #    2.292 GHz                       
+            118279      stalled-cycles-frontend          #    3.06% frontend cycles idle      
+            790761      stalled-cycles-backend           #   20.48% backend cycles idle       
+            498434      branches                         #  295.870 M/sec                     
+             60703      branch-misses                    #   12.18% of all branches           
+
+       1.002272832 seconds time elapsed
+
+       0.000000000 seconds user
+       0.002262000 seconds sys

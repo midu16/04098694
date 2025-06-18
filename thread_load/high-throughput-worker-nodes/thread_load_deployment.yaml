@@ -1,0 +1,78 @@
+# Kubernetes Deployment for Thread Load Testing
+# This deployment is designed to run a thread load test using the AMD EPYC HPC Chapter
+---
+# Namespace for the thread-test application
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: thread-test
+  labels:
+    pod-security.kubernetes.io/enforce: privileged
+    pod-security.kubernetes.io/warn: privileged
+    pod-security.kubernetes.io/audit: privileged
+---
+# Service Account for the deployment
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: thread-test-sa
+  namespace: thread-test
+---
+# Allow thread-test-sa to use privileged SCC
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: use-privileged-scc
+  namespace: thread-test
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:openshift:scc:privileged
+subjects:
+- kind: ServiceAccount
+  name: thread-test-sa
+  namespace: thread-test
+---
+# Thread Test Deployment with AMD EPYC HPC tuning recommendations
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thread-test
+  namespace: thread-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thread-test
+  template:
+    metadata:
+      labels:
+        app: thread-test
+      annotations:
+        cpu-pinning: "static"
+    spec:
+      hostPID: true
+      serviceAccountName: thread-test-sa
+      nodeName: cnfdc13.t5g-dev.eng.rdu2.dc.redhat.com
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+        runAsNonRoot: false
+      containers:
+      - name: thread-test
+        image: quay.io/midu/thread-test:28052025
+        securityContext:
+          privileged: true
+          allowPrivilegeEscalation: true
+          runAsNonRoot: false
+          seccompProfile:
+            type: RuntimeDefault
+        stdin: true
+        tty: true
+        resources:
+          requests:
+            cpu: "100"
+            memory: "8Gi"
+          limits:
+            cpu: "100"
+            memory: "8Gi"
