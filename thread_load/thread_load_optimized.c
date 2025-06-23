@@ -6,6 +6,7 @@
 #include <errno.h>
 #include <string.h>
 #include <time.h>
+#include <sched.h>
 
 #define THREADS 64
 #define THREADS_PER_MUTEX 4
@@ -14,13 +15,12 @@
 #define THREAD_SLEEP_US 100
 #define OPERATIONS 100000
 
-// Replace mutexes with spinlocks
 pthread_spinlock_t spinlocks[MUTEX_COUNT];
 pthread_spinlock_t mt_count;
 
 int ops = 0;
 
-// Dummy logging function for illustration
+// Dummy logging function
 void timestamp_log(const char *fmt, int val) {
     printf(fmt, val);
 }
@@ -28,6 +28,14 @@ void timestamp_log(const char *fmt, int val) {
 void* thread_func(void* arg) {
     int index = *(int *)arg;
     free(arg);
+
+    // Pin this thread to a specific CPU core (matching index)
+    cpu_set_t cpuset;
+    CPU_ZERO(&cpuset);
+    CPU_SET(index % sysconf(_SC_NPROCESSORS_ONLN), &cpuset);
+    if (pthread_setaffinity_np(pthread_self(), sizeof(cpu_set_t), &cpuset) != 0) {
+        fprintf(stderr, "Warning: Could not set CPU affinity for thread %d: %s\n", index, strerror(errno));
+    }
 
     pthread_spinlock_t *lock = &spinlocks[index / THREADS_PER_MUTEX];
 
