@@ -1,7 +1,9 @@
+#define _GNU_SOURCE
+#include <pthread.h>
+#include <sched.h>
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <pthread.h>
-#include <unistd.h>
 #include <stdint.h>
 #include <errno.h>
 #include <string.h>
