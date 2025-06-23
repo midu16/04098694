@@ -8,7 +8,6 @@
 #include <errno.h>
 #include <string.h>
 #include <time.h>
-#include <sched.h>
 
 #define THREADS 64
 #define THREADS_PER_MUTEX 4
@@ -31,7 +30,7 @@ void* thread_func(void* arg) {
     int index = *(int *)arg;
     free(arg);
 
-    // Pin this thread to a specific CPU core (matching index)
+    // Pin thread to a specific CPU core
     cpu_set_t cpuset;
     CPU_ZERO(&cpuset);
     CPU_SET(index % sysconf(_SC_NPROCESSORS_ONLN), &cpuset);
@@ -55,8 +54,8 @@ void* thread_func(void* arg) {
             pthread_spin_lock(&mt_count);
             if (ops >= OPERATIONS) {
                 timestamp_log("operation finished - %d\n", ops);
-                pthread_spin_unlock(&mt_count);
-                exit(0);
+                exit(0);  // Exit inside the lock as requested
+		pthread_spin_unlock(&mt_count);
             }
             ops++;
             pthread_spin_unlock(&mt_count);
@@ -71,7 +70,7 @@ void* thread_func(void* arg) {
 int main(void) {
     pthread_t threads[THREADS];
 
-    // Init spinlocks
+    // Initialize spinlocks
     for (int i = 0; i < MUTEX_COUNT; i++) {
         if (pthread_spin_init(&spinlocks[i], PTHREAD_PROCESS_PRIVATE) != 0) {
             perror("spinlock init failed");
@@ -84,8 +83,13 @@ int main(void) {
         exit(EXIT_FAILURE);
     }
 
+    // Launch threads
     for (int i = 0; i < THREADS; i++) {
         int *arg = malloc(sizeof(int));
+        if (!arg) {
+            perror("malloc failed");
+            exit(EXIT_FAILURE);
+        }
         *arg = i;
         if (pthread_create(&threads[i], NULL, thread_func, arg) != 0) {
             perror("thread create failed");
@@ -93,10 +97,12 @@ int main(void) {
         }
     }
 
+    // Join threads
     for (int i = 0; i < THREADS; i++) {
         pthread_join(threads[i], NULL);
     }
 
+    // Destroy spinlocks
     for (int i = 0; i < MUTEX_COUNT; i++) {
         pthread_spin_destroy(&spinlocks[i]);
     }
